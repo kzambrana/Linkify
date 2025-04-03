@@ -1,0 +1,28 @@
+/* Primary colors */
+$lf-primary-purple: #633cff;
+$lf-primary-gray: #333333;
+$lf-primary-red: #ff3939;
+$lf-primary-white: #ffffff;
+
+/* Secondary colors */
+$lf-secondary-purple: #beadff;
+$lf-secondary-gray: #737373;
+
+/* Background colors */
+$lf-background-light-gray: #fafafa;
+$lf-background-light-purple: #efebff;
+
+/* Shadow colors*/
+$lf-purple-shadow: #633cffa1;
+
+/* Border colors */
+$lf-borders-gray: #d9d9d9;
+
+/* Root injection*/
+:root {
+  --lf-primary-font-color: #{$lf-primary-gray};
+  --lf-primary-purple: #{$lf-primary-purple};
+  --lf-primary-red: #{$lf-primary-red};
+  --lf-border-gray: #{$lf-borders-gray};
+  --lf-purple-shadow: #{$lf-purple-shadow};
+}
