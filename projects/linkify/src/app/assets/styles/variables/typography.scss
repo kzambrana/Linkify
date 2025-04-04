@@ -1,0 +1,46 @@
+/* Typography variables */
+$lf-instrument-sans-font-family: 'Instrument Sans', sans-serif;
+
+/* Font sizes */
+$lf-heading-s-size: 16px;
+$lf-heading-m-size: 32px;
+$lf-body-s-size: 12px;
+$lf-body-m-size: 16px;
+
+/* Font weights */
+$lf-font-weight-regular: 400;
+$lf-font-weight-bold: 700;
+
+/* Heading typography styles */
+.lf-heading-s {
+  font-family: $lf-instrument-sans-font-family;
+  font-size: $lf-heading-s-size;
+  font-weight: $lf-font-weight-bold;
+  line-height: 1.5;
+}
+
+.lf-heading-m {
+  font-family: $lf-instrument-sans-font-family;
+  font-size: $lf-heading-m-size;
+  font-weight: $lf-font-weight-bold;
+  line-height: 1.5;
+}
+
+/* Body typography styless*/
+.lf-body-s {
+  font-family: $lf-instrument-sans-font-family;
+  font-size: $lf-body-s-size;
+  font-weight: $lf-font-weight-regular;
+  line-height: 1.5;
+}
+
+.lf-body-m {
+  font-family: $lf-instrument-sans-font-family;
+  font-size: $lf-body-m-size;
+  font-weight: $lf-font-weight-regular;
+  line-height: 1.5;
+}
+
+:root {
+  --font-family-instrument-sans: #{$lf-instrument-sans-font-family}
+}
