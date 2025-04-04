@@ -1,24 +1,21 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component, EventEmitter, input, output} from '@angular/core';
 
 @Component({
-  selector: 'lf-input',
-  templateUrl: './lf-input.component.html',
-  styleUrl: './lf-input.component.scss',
-  imports: [
-    NgIf
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'lf-input',
+    templateUrl: './lf-input.component.html',
+    styleUrl: './lf-input.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfInputComponent {
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
-  @Input() iconPath: string = '';
-  @Input() errorMessage: string = '';
-  @Output() inputValueChange = new EventEmitter<string>();
+    type = input<string>('');
+    placeholder = input<string>('');
+    iconPath = input<string>('');
+    errorMessage = input<string>('');
+    inputValueChange = output<string>();
 
-  public onInputChange(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.inputValueChange.emit(value);
-  }
+    public onInputChange(inputEvent: Event) {
+        const value = (inputEvent.target as HTMLInputElement).value;
+        const event = new CustomEvent('inputValueChange', { detail: value });
+        dispatchEvent(event);
+    }
 }
