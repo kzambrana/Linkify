@@ -1,6 +1,6 @@
 <div class="lf-input-container lf-input-container--error">
     <div class="lf-input-left-container">
-        @if (iconPath() && iconPath() !== '') {
+        @if (!!iconPath()) {
             <span class="lf-input-icon">
                 <img [src]="iconPath()" alt="icon"/>
             </span>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="lf-input-right-container">
-        @if (errorMessage() && errorMessage() !== '') {
+        @if (!!errorMessage()) {
             <span class="lf-input-error-message">
                 {{ errorMessage() }}
             </span>
