@@ -1,16 +1,42 @@
 <section class="lf-login-view-container">
-  <span class="lf-login-label lf-body-m">Login</span>
+    <div class="lf-login-view-title-container">
+        <img class="lf-login-view-logo" src="icons/linkify-logo.svg"/>
+        <span class="lf-login-view-title lf-heading-m">Linkify</span>
+    </div>
 
-  <form>
-    <lf-input
-      type="email"
-      placeholder="e.g. alex@email.com"
-      iconPath="icons/email-icon.svg"
-      errorMessage="Please check again"
-    ></lf-input>
-      <lf-button [buttonText]="'Button'"
-                 [disabled]="true"
-                 [primary]="true"
-      ></lf-button>
-  </form>
+    <form class="lf-login-view-form">
+        <div class="lf-login-view-form-header">
+            <span class="lf-login-title lf-heading-m">Login</span>
+
+            <span class="lf-body-m lf-login-description">Add your details below to get back into the app</span>
+        </div>
+
+        <div class="lf-login-view-form-input-wrapper">
+            <label class="lf-body-s">Email</label>
+
+            <lf-input type="email"
+                      placeholder="e.g. alex@email.com"
+                      iconPath="icons/email-icon.svg">
+            </lf-input>
+        </div>
+
+        <div class="lf-login-view-form-input-wrapper">
+            <label class="lf-body-s">Password</label>
+
+            <lf-input type="password"
+                      placeholder="Enter your password"
+                      iconPath="icons/lock-key-icon.svg">
+            </lf-input>
+        </div>
+
+        <lf-button [buttonText]="'Login'"
+                   [primary]="true">
+        </lf-button>
+
+        <div class="lf-body-m lf-login-view-create-account">
+            <span class="lf-login-view-create-account-question">Don't have an account?</span>
+
+            <span class="lf-login-view-create-account-create">Create account</span>
+        </div>
+    </form>
 </section>
