@@ -4,7 +4,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
   {
     path: 'auth/login',
-    loadComponent: () =>
-      import('./features/auth/lf-login-view/lf-login-view.component').then((c) => c.LfLoginViewComponent),
+    loadComponent: () => import('./features/auth/lf-login-view/lf-login-view.component')
   }
 ];

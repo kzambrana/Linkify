@@ -7,11 +7,11 @@ import {ChangeDetectionStrategy, Component, EventEmitter, input, output} from '@
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfInputComponent {
-    public type = input<string>('');
-    public placeholder = input<string>('');
-    public iconPath = input<string>('');
-    public errorMessage = input<string>('');
-    public inputValueChange = output<string>();
+    type = input<string>('');
+    placeholder = input<string>('');
+    iconPath = input<string>('');
+    errorMessage = input<string>('');
+    inputValueChange = output<string>();
 
     public onInputChange(inputEvent: Event) {
         const value = (inputEvent.target as HTMLInputElement).value;
