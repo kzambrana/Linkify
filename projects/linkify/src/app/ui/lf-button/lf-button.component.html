@@ -1,3 +1,7 @@
-<button class="lf-button lf-button-secondary lf-button-secondary--active">
-  <span>{{buttonText()}}</span>
+<button class="lf-button"
+        (click)="onClick()"
+        [class.primary]="primary()"
+        [class.secondary]="!primary()"
+        [class.disabled]="disabled()">
+  <span>{{ buttonText() }}</span>
 </button>

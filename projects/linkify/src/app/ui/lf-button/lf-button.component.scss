@@ -9,33 +9,35 @@
   align-items: center;
   justify-content: center;
 
-  &-primary {
+  &.primary {
     background-color: var(--lf-primary-purple);
     color: var(--lf-primary-white);
     border: none;
 
-    &--active {
+    &.active {
       background-color: var(--lf-secondary-purple);
       box-shadow: 0 0 6px 0 var(--lf-purple-shadow);
     }
 
-    &--disabled {
+    &.disabled {
       opacity: 25%;
+      cursor: not-allowed;
     }
   }
 
-  &-secondary {
+  &.secondary {
     border-color: var(--lf-primary-purple);
     color: var(--lf-primary-purple);
     background-color: var(--lf-primary-white);
     border: 1px solid var(--lf-primary-purple);
 
-    &--active {
+    &.active {
       background-color: var(--lf-background-light-purple);
     }
 
-    &--disabled {
+    &.disabled {
       opacity: 25%;
+      cursor: not-allowed;
     }
   }
 }
