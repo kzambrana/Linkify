@@ -11,7 +11,6 @@ import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
   templateUrl: './lf-login-view.component.html',
   styleUrl: './lf-login-view.component.scss',
   imports: [LfInputComponent, LfButtonComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfLoginViewComponent {}
+export default class LfLoginViewComponent {}
