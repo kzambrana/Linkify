@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component,} from '@angular/core';
 import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'lf-login-view',
@@ -13,7 +14,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 export default class LfLoginViewComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private router: Router) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -50,5 +52,9 @@ export default class LfLoginViewComponent {
     } else {
       console.log('Valid form!');
     }
+  }
+
+  public goToCreateAccount(): void {
+    this.router.navigate(['auth/create-account']);
   }
 }
