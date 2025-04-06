@@ -1,10 +1,10 @@
 <section class="lf-login-view-container">
     <div class="lf-login-view-title-container">
-        <img class="lf-login-view-logo" src="icons/linkify-logo.svg"/>
+        <img class="lf-login-view-logo" src="icons/linkify-logo.svg" alt="Linkify logo"/>
         <span class="lf-login-view-title lf-heading-m">Linkify</span>
     </div>
 
-    <form class="lf-login-view-form">
+    <form class="lf-login-view-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="lf-login-view-form-header">
             <span class="lf-login-title lf-heading-m">Login</span>
 
@@ -16,7 +16,9 @@
 
             <lf-input type="email"
                       placeholder="e.g. alex@email.com"
-                      iconPath="icons/email-icon.svg">
+                      iconPath="icons/email-icon.svg"
+                      [errorMessage]="getErrorMessage('email')"
+                      (inputValueChange)="onInputValueChange('email', $event)">
             </lf-input>
         </div>
 
@@ -25,18 +27,25 @@
 
             <lf-input type="password"
                       placeholder="Enter your password"
-                      iconPath="icons/lock-key-icon.svg">
+                      iconPath="icons/lock-key-icon.svg"
+                      [errorMessage]="getErrorMessage('password')"
+                      (inputValueChange)="onInputValueChange('password', $event)">
             </lf-input>
         </div>
 
-        <lf-button [buttonText]="'Login'"
+        <lf-button type="submit"
+                   [buttonText]="'Login'"
                    [primary]="true">
         </lf-button>
 
         <div class="lf-body-m lf-login-view-create-account">
-            <span class="lf-login-view-create-account-question">Don't have an account?</span>
+            <span class="lf-login-view-create-account-question">
+              Don't have an account?
+            </span>
 
-            <span class="lf-login-view-create-account-create">Create account</span>
+            <span class="lf-login-view-create-account-create">
+              Create account
+            </span>
         </div>
     </form>
 </section>
