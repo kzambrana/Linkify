@@ -1,0 +1,63 @@
+<section class="lf-create-account-container">
+    <div class="lf-create-account-title-container">
+        <img class="lf-create-account-logo" src="icons/linkify-logo.svg" alt="Linkify logo"/>
+        <span class="lf-create-account-title lf-heading-m">Linkify</span>
+    </div>
+
+    <form class="lf-create-account-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="lf-create-account-form-header">
+            <span class="lf-login-title lf-heading-m">Create account</span>
+
+            <span class="lf-body-m lf-login-description">Let’s get you started sharing your links!</span>
+        </div>
+
+        <div class="lf-create-account-form-input-wrapper">
+            <label class="lf-body-s">Email address</label>
+
+            <lf-input type="email"
+                      placeholder="e.g. alex@email.com"
+                      iconPath="icons/email-icon.svg"
+                      [errorMessage]="getErrorMessage('email')"
+                      (inputValueChange)="onInputValueChange('email', $event)">
+            </lf-input>
+        </div>
+
+        <div class="lf-create-account-form-input-wrapper">
+            <label class="lf-body-s">Create password</label>
+
+            <lf-input type="password"
+                      placeholder="Enter your password"
+                      iconPath="icons/lock-key-icon.svg"
+                      [errorMessage]="getErrorMessage('password')"
+                      (inputValueChange)="onInputValueChange('password', $event)">
+            </lf-input>
+        </div>
+
+        <div class="lf-create-account-form-input-wrapper">
+            <label class="lf-body-s">Confirm password</label>
+
+            <lf-input type="password"
+                      placeholder="Confirm your password"
+                      iconPath="icons/lock-key-icon.svg"
+                      [errorMessage]="getErrorMessage('confirmPassword')"
+                      (inputValueChange)="onInputValueChange('confirmPassword', $event)">
+            </lf-input>
+        </div>
+        <span class="lf-body-s lf-login-description">Password must contains at least 8 characters</span>
+
+        <lf-button type="submit"
+                   [buttonText]="'Create new account'"
+                   [primary]="true">
+        </lf-button>
+
+        <div class="lf-body-m lf-create-account-create-account">
+            <span class="lf-create-account-create-account-question">
+              Already have an account?
+            </span>
+
+            <span class="lf-create-account-create-account-create">
+              Login
+            </span>
+        </div>
+    </form>
+</section>
