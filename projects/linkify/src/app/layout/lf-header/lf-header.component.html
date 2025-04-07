@@ -1,0 +1,27 @@
+<section class="app-header">
+  <div class="header-left">
+    <img class="app-logo" src="images/linkify-logo.svg"/>
+
+    <span class="app-name lf-heading-s">Linkify</span>
+  </div>
+
+  <div class="header-center">
+    <lf-tab [iconSrc]="'lf-icon-link'"
+            [text]="'Links'"
+            [active]="selectedTab === 'Links'"
+            (tabClick)="onTabPressed('Links')">
+    </lf-tab>
+
+    <lf-tab [iconSrc]="'lf-icon-profile'"
+            [text]="'Profile Details'"
+            [active]="selectedTab === 'Profile Details'"
+            (tabClick)="onTabPressed('Profile Details')">
+    </lf-tab>
+  </div>
+
+  <div class="header-right">
+    <lf-button [buttonText]="'Preview'"
+               [primary]="false">
+    </lf-button>
+  </div>
+</section>
