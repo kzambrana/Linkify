@@ -1,0 +1,120 @@
+@use "variables" as *;
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?kdy13p');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?kdy13p#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?kdy13p') format('truetype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?kdy13p') format('woff'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?kdy13p##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lf-icon-"], [class*=" lf-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lf-icon-devto-dark {
+  &:before {
+    content: $lf-icon-devto-dark;
+  }
+}
+.lf-icon-link {
+  &:before {
+    content: $lf-icon-link;
+  }
+}
+.lf-icon-twitter {
+  &:before {
+    content: $lf-icon-twitter;
+  }
+}
+.lf-icon-linkedin {
+  &:before {
+    content: $lf-icon-linkedin;
+  }
+}
+.lf-icon-youtube {
+  &:before {
+    content: $lf-icon-youtube;
+  }
+}
+.lf-icon-facebook {
+  &:before {
+    content: $lf-icon-facebook;
+  }
+}
+.lf-icon-twitch {
+  &:before {
+    content: $lf-icon-twitch;
+  }
+}
+.lf-icon-codewars {
+  &:before {
+    content: $lf-icon-codewars;
+  }
+}
+.lf-icon-codepen {
+  &:before {
+    content: $lf-icon-codepen;
+  }
+}
+.lf-icon-free-code-camp {
+  &:before {
+    content: $lf-icon-free-code-camp;
+  }
+}
+.lf-icon-gitlab {
+  &:before {
+    content: $lf-icon-gitlab;
+  }
+}
+.lf-icon-hashnode {
+  &:before {
+    content: $lf-icon-hashnode;
+  }
+}
+.lf-icon-stackoverflow {
+  &:before {
+    content: $lf-icon-stackoverflow;
+  }
+}
+.lf-icon-fe-mentor {
+  &:before {
+    content: $lf-icon-fe-mentor;
+  }
+}
+.lf-icon-image-preview {
+  &:before {
+    content: $lf-icon-image-preview;
+  }
+}
+.lf-icon-arrow {
+  &:before {
+    content: $lf-icon-arrow;
+  }
+}
+.lf-icon-github {
+  &:before {
+    content: $lf-icon-github;
+  }
+}
+.lf-icon-profile {
+  &:before {
+    content: $lf-icon-profile;
+  }
+}
+

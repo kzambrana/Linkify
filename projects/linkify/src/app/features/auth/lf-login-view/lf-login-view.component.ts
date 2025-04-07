@@ -1,9 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
-import { LfInputComponent } from '../../../ui/lf-input/lf-input.component';
+import {ChangeDetectionStrategy, Component,} from '@angular/core';
+import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 
 @Component({
@@ -13,4 +9,5 @@ import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
   imports: [LfInputComponent, LfButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class LfLoginViewComponent {}
+export default class LfLoginViewComponent {
+}
