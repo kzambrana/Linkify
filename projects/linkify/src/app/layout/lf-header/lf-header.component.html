@@ -1,11 +1,11 @@
-<section class="app-header">
-  <div class="header-left">
-    <img class="app-logo" src="images/linkify-logo.svg"/>
+<section class="lf-header-container">
+  <div class="lf-header-left">
+    <img class="lf-header-logo" src="images/linkify-logo.svg"/>
 
-    <span class="app-name lf-heading-s">Linkify</span>
+    <span class="lf-header-app-name lf-heading-s">Linkify</span>
   </div>
 
-  <div class="header-center">
+  <div class="lf-header-center">
     <lf-tab [iconSrc]="'lf-icon-link'"
             [text]="'Links'"
             [active]="selectedTab === 'Links'"
@@ -19,7 +19,7 @@
     </lf-tab>
   </div>
 
-  <div class="header-right">
+  <div class="lf-header-right">
     <lf-button [buttonText]="'Preview'"
                [primary]="false">
     </lf-button>

@@ -1,6 +1,7 @@
+<lf-header></lf-header>
 <section class="lf-create-account-container">
     <div class="lf-create-account-title-container">
-        <img class="lf-create-account-logo" src="icons/linkify-logo.svg" alt="Linkify logo"/>
+        <img class="lf-create-account-logo" src="images/linkify-logo.svg" alt="Linkify logo"/>
         <span class="lf-create-account-title lf-heading-m">Linkify</span>
     </div>
 
@@ -16,7 +17,7 @@
 
             <lf-input type="email"
                       placeholder="e.g. alex@email.com"
-                      iconPath="icons/email-icon.svg"
+                      iconPath="images/email-icon.svg"
                       [errorMessage]="getErrorMessage('email')"
                       (inputValueChange)="onInputValueChange('email', $event)">
             </lf-input>
@@ -27,7 +28,7 @@
 
             <lf-input type="password"
                       placeholder="Enter your password"
-                      iconPath="icons/lock-key-icon.svg"
+                      iconPath="images/lock-key-icon.svg"
                       [errorMessage]="getErrorMessage('password')"
                       (inputValueChange)="onInputValueChange('password', $event)">
             </lf-input>
@@ -38,7 +39,7 @@
 
             <lf-input type="password"
                       placeholder="Confirm your password"
-                      iconPath="icons/lock-key-icon.svg"
+                      iconPath="images/lock-key-icon.svg"
                       [errorMessage]="getErrorMessage('confirmPassword')"
                       (inputValueChange)="onInputValueChange('confirmPassword', $event)">
             </lf-input>

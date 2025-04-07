@@ -1,56 +1,38 @@
-.app-header {
+.lf-header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--lf-primary-white);
   padding: 0.5rem 1rem;
   height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  .header-left,
-  .header-center,
-  .header-right {
+  .lf-header-left,
+  .lf-header-center,
+  .lf-header-right {
     display: flex;
     align-items: center;
   }
 
-  .header-left {
+  .lf-header-left {
     gap: 0.5rem;
 
-    .app-logo {
+    .lf-header-logo {
       height: 30px;
       width: auto;
     }
 
-    .app-name {
+    .lf-header-app-name {
       font-size: 1.3rem;
       font-weight: bold;
-      color: #333;
     }
   }
 
-  .header-center {
+  .lf-header-center {
     gap: 1rem;
   }
 
-  .header-right {
+  .lf-header-right {
     font-size: 10px;
-
-    .header-button {
-      margin-left: auto;
-    }
-  }
-
-  .header-button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: #e0e0e0;
-    }
   }
 }
