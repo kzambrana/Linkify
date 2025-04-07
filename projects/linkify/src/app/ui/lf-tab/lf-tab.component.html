@@ -1,0 +1,8 @@
+<button class="lf-tab-button"
+        [class.active]="active()"
+        (click)="handleClick()">
+  @if (!!iconSrc) {
+    <span [class]="iconSrc()"></span>
+  }
+  <span class="lf-heading-s">{{ text() }}</span>
+</button>
