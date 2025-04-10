@@ -1,18 +1,16 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
-import {LfHeaderComponent} from "../../../layout/lf-header/lf-header.component";
 
 @Component({
   selector: 'lf-create-account-view',
-    imports: [
-        LfButtonComponent,
-        LfInputComponent,
-        ReactiveFormsModule,
-        LfHeaderComponent
-    ],
+  imports: [
+    LfButtonComponent,
+    LfInputComponent,
+    ReactiveFormsModule
+  ],
   templateUrl: './lf-create-account-view.component.html',
   styleUrl: './lf-create-account-view.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -3,9 +3,9 @@
      [class.lf-input-container--error]="!!errorMessage() && !isActive">
     <div class="lf-input-left-container">
         @if (!!iconPath()) {
-            <span class="lf-input-icon">
-                <img [src]="iconPath()" alt="icon"/>
-            </span>
+            <div class="lf-input-icon">
+              <span [class]="iconPath()"></span>
+            </div>
         }
         <input class="lf-input"
                [type]="type()"

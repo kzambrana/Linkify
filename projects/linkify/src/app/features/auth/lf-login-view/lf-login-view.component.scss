@@ -41,6 +41,10 @@
 
     .lf-login-view-form-input-wrapper {
       width: 100%;
+
+      span {
+        color: var(--lf-secondary-font-color);
+      }
     }
 
     .lf-login-view-create-account {

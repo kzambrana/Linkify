@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?kdy13p');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?kdy13p#iefix') format('embedded-opentype'),
-  url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?kdy13p') format('truetype'),
-  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?kdy13p') format('woff'),
-  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?kdy13p##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?g43r48');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?g43r48#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?g43r48') format('truetype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?g43r48') format('woff'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?g43r48##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -115,6 +115,26 @@
 .lf-icon-profile {
   &:before {
     content: $lf-icon-profile;
+  }
+}
+.lf-icon-envelope {
+  &:before {
+    content: $lf-icon-envelope;
+  }
+}
+.lf-icon-menu {
+  &:before {
+    content: $lf-icon-menu;
+  }
+}
+.lf-icon-lock {
+  &:before {
+    content: $lf-icon-lock;
+  }
+}
+.lf-icon-arrow-down {
+  &:before {
+    content: $lf-icon-arrow-down;
   }
 }
 
