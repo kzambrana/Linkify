@@ -19,5 +19,8 @@
 
   <div class="lf-input-platform">
     <span class="lf-body-s">Platform</span>
+
+    <lf-drop-down [options]="platformOptions" (optionSelected)="onPlatformSelect($event)">
+    </lf-drop-down>
   </div>
 </section>
