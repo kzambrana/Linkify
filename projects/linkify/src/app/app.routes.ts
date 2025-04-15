@@ -12,6 +12,6 @@ export const routes: Routes = [
   },
   {
     path: 'auth/customize-links',
-    loadComponent: () => import('./features/links/lf-main-links-customize-view/lf-main-links-customize-view.component')
+    loadComponent: () => import('./features/views/lf-main-links-customize/lf-main-links-customize.component')
   }
 ];
