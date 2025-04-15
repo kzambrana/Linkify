@@ -18,8 +18,7 @@
                       placeholder="e.g. alex@email.com"
                       iconPath="lf-icon-envelope"
                       [errorMessage]="getErrorMessage('email')"
-                      (inputValueChange)="onInputValueChange('email', $event)">
-            </lf-input>
+                      (inputValueChange)="onInputValueChange('email', $event)"/>
         </div>
 
         <div class="lf-create-account-form-input-wrapper">
@@ -29,8 +28,7 @@
                       placeholder="Enter your password"
                       iconPath="lf-icon-lock"
                       [errorMessage]="getErrorMessage('password')"
-                      (inputValueChange)="onInputValueChange('password', $event)">
-            </lf-input>
+                      (inputValueChange)="onInputValueChange('password', $event)"/>
         </div>
 
         <div class="lf-create-account-form-input-wrapper">
@@ -40,15 +38,13 @@
                       placeholder="Confirm your password"
                       iconPath="lf-icon-lock"
                       [errorMessage]="getErrorMessage('confirmPassword')"
-                      (inputValueChange)="onInputValueChange('confirmPassword', $event)">
-            </lf-input>
+                      (inputValueChange)="onInputValueChange('confirmPassword', $event)"/>
         </div>
         <span class="lf-body-s lf-login-description">Password must contains at least 8 characters</span>
 
         <lf-button type="submit"
                    [buttonText]="'Create new account'"
-                   [primary]="true">
-        </lf-button>
+                   [primary]="true"/>
 
         <div class="lf-body-m lf-create-account-create-account">
             <span class="lf-create-account-create-account-question">

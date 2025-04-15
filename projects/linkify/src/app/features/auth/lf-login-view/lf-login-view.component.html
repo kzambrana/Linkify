@@ -18,8 +18,7 @@
                       placeholder="e.g. alex@email.com"
                       iconPath="lf-icon-envelope"
                       [errorMessage]="getErrorMessage('email')"
-                      (inputValueChange)="onInputValueChange('email', $event)">
-            </lf-input>
+                      (inputValueChange)="onInputValueChange('email', $event)"/>
         </div>
 
         <div class="lf-login-view-form-input-wrapper">
@@ -27,17 +26,12 @@
 
             <lf-input type="password"
                       placeholder="Enter your password"
-                      iconPath="lf-icon-lock">
-                      iconPath="icons/lock-key-icon.svg"
+                      iconPath="lf-icon-lock"
                       [errorMessage]="getErrorMessage('password')"
-                      (inputValueChange)="onInputValueChange('password', $event)">
-            </lf-input>
+                      (inputValueChange)="onInputValueChange('password', $event)"/>
         </div>
 
-        <lf-button type="submit"
-                   [buttonText]="'Login'"
-                   [primary]="true">
-        </lf-button>
+        <lf-button type="submit" [buttonText]="'Login'" [primary]="true"/>
 
         <div class="lf-body-m lf-login-view-create-account">
             <span class="lf-login-view-create-account-question">
