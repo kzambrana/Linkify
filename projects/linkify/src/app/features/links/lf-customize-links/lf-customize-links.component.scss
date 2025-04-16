@@ -1,27 +1,78 @@
 :host {
   display: flex;
-  padding: 20px 25px;
-  background-color: var(--lf-primary-white);
-  height: calc(100% - 40px);
-  gap: 45px;
   flex-direction: column;
+  height: 100%;
+  background-color: var(--lf-primary-white);
   border-radius: 12px;
+  justify-content: space-between;
+  position: relative;
 }
 
-.lf-customize-links-header {
+.lf-customize-links-content {
+  position: absolute;
   display: flex;
-  width: 100%;
-  height: 60px;
-  align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px 0;
+  gap: 20px;
+  padding: 20px 25px 0;
+  width: calc(100% - 50px);
 
-  .lf-description {
-    color: var(--lf-secondary-font-color);
+  .lf-customize-links-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .lf-description {
+      color: var(--lf-secondary-font-color);
+    }
+  }
+
+  lf-button {
+    flex-shrink: 0;
+  }
+
+  .lf-manage-links-container {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+  }
+
+  .lf-customize-links-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 5rem;
+    height: 100%;
+
+    &-image {
+      height: 40%;
+    }
+
+    .lf-description {
+      color: var(--lf-secondary-font-color);
+      text-align: center;
+    }
   }
 }
 
-.lf-manage-links-container {
-  width: 100%;
+.lf-customize-links-footer {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid var(--lf-border-gray);
+  background-color: var(--lf-primary-white);
+  border-radius: 0 0 12px 12px;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 50px);
+  padding: 0 25px;
+
+  lf-button {
+    width: 80px;
+  }
 }
+

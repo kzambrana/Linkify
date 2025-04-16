@@ -1,9 +1,9 @@
 <div class="lf-drop-down-container" [class.lf-drop-down-container--active]="isOpen">
   <div class="lf-drop-down-selected" (click)="toggleDropdown()">
     @if (selected()) {
-      <span class="lf-drop-down-icon" [class]="selected()?.iconPath"></span>
+      <span class="lf-drop-down-icon" [class]="selected().iconPath"></span>
 
-      <span class="lf-drop-down-label">{{ selected()?.label }}</span>
+      <span class="lf-drop-down-label">{{ selected().label }}</span>
     } @else {
       <span class="lf-drop-down-placeholder">Select a platform</span>
     }

@@ -1,25 +1,29 @@
 <section class="lf-input-header-container">
-  <div class="lf-input-container-left">
-    <span class="lf-icon-menu"></span>
+    <div class="lf-input-container-left">
+        <span class="lf-icon-menu"></span>
+        <span class="lf-body-m lf-link-number">Link #{{ cardNumber() }}</span>
+    </div>
 
-    <span class="lf-body-m lf-link-number">Link #1</span>
-  </div>
-
-  <div class="lf-input-container-right">
-    <button class="lf-body-m lf-input-remove-button">Remove</button>
-  </div>
+    <div class="lf-input-container-right">
+        <button class="lf-body-m lf-input-remove-button" (click)="removeLinkCard()">Remove</button>
+    </div>
 </section>
 
 <section class="lf-link-input-items">
-  <div class="lf-input-link">
-    <span class="lf-body-s">Link</span>
+    <div class="lf-input-platform">
+        <span class="lf-body-s">Platform</span>
 
-    <lf-input iconPath="lf-icon-link"/>
-  </div>
+        <lf-drop-down
+                [options]="platformOptions()"
+                (optionSelected)="onPlatformSelect($event)"/>
+    </div>
 
-  <div class="lf-input-platform">
-    <span class="lf-body-s">Platform</span>
+    <div class="lf-input-link">
+        <span class="lf-body-s">Link</span>
 
-    <lf-drop-down [options]="platformOptions" (optionSelected)="onPlatformSelect($event)"/>
-  </div>
+        <lf-input placeholder="e.g. https://www.github.com/johnappleseed"
+                  iconPath="lf-icon-link"
+                  [errorMessage]="urlErrorMessage"
+                  (inputValueChange)="onLinkChange($event)"/>
+    </div>
 </section>
