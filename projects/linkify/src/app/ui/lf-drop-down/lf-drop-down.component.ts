@@ -12,7 +12,12 @@ import {CommonModule} from '@angular/common';
 })
 export class LfDropdownComponent {
   options = input<LfDropDownOption[]>([]);
-  selected = signal<LfDropDownOption | null>(null);
+  selected = signal<LfDropDownOption>({
+    label: '',
+    value: '',
+    iconPath: '',
+    color: ''
+  });
   optionSelected = output<LfDropDownOption>();
   isOpen = false;
 
@@ -23,7 +28,6 @@ export class LfDropdownComponent {
   public selectOption(option: LfDropDownOption): void {
     this.optionSelected.emit(option);
     this.isOpen = false;
-    console.log(this.isOpen)
     this.selected.set(option);
   }
 }
