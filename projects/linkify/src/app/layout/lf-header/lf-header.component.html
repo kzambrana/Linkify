@@ -9,19 +9,16 @@
     <lf-tab [iconSrc]="'lf-icon-link'"
             [text]="'Links'"
             [active]="selectedTab === 'Links'"
-            (tabClick)="onTabPressed('Links')">
-    </lf-tab>
+            (tabClick)="onTabPressed('Links')"/>
 
     <lf-tab [iconSrc]="'lf-icon-profile'"
             [text]="'Profile Details'"
             [active]="selectedTab === 'Profile Details'"
-            (tabClick)="onTabPressed('Profile Details')">
-    </lf-tab>
+            (tabClick)="onTabPressed('Profile Details')"/>
   </div>
 
   <div class="lf-header-right">
     <lf-button [buttonText]="'Preview'"
-               [primary]="false">
-    </lf-button>
+               [primary]="false"/>
   </div>
 </section>

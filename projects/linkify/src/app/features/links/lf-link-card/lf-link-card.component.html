@@ -1,0 +1,25 @@
+<section class="lf-input-header-container">
+  <div class="lf-input-container-left">
+    <span class="lf-icon-menu"></span>
+
+    <span class="lf-body-m lf-link-number">Link #1</span>
+  </div>
+
+  <div class="lf-input-container-right">
+    <button class="lf-body-m lf-input-remove-button">Remove</button>
+  </div>
+</section>
+
+<section class="lf-link-input-items">
+  <div class="lf-input-link">
+    <span class="lf-body-s">Link</span>
+
+    <lf-input iconPath="lf-icon-link"/>
+  </div>
+
+  <div class="lf-input-platform">
+    <span class="lf-body-s">Platform</span>
+
+    <lf-drop-down [options]="platformOptions" (optionSelected)="onPlatformSelect($event)"/>
+  </div>
+</section>
