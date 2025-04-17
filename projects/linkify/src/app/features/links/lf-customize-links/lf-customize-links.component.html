@@ -17,6 +17,7 @@
                         [cardNumber]="$index + 1"
                         [dataLink]="link"
                         [platformOptions]="LF_PLATFORMS_LIST"
+                        (updatedLinkEmitter)="updateLinkData($event)"
                         (deletedCardEmitter)="deleteLinkCard($event)"/>
             }
         </div>
@@ -34,6 +35,8 @@
 
 @if (linksList.length > 0) {
     <section class="lf-customize-links-footer">
-        <lf-button [primary]="true" buttonText="Save"/>
+        <lf-button [primary]="true"
+                   buttonText="Save"
+                   (clickEmitter)="saveLinks()"/>
     </section>
 }
