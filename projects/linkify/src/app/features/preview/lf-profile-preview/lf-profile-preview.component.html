@@ -7,11 +7,15 @@
 </section>
 
 <section class="lf-profile-buttons-container">
-  <button class="lf-platform-button">
-    <span class="lf-icon-youtube"></span>
+  @for ( link of savedLinks; track link.id) {
+    <button class="lf-platform-button"
+            [style.background-color]="link.color"
+            (click)="openLink(link.link)">
+      <span [class]="link.iconPath"></span>
 
-    <span class="lf-body-s lf-platform-name"> Youtube </span>
+      <span class="lf-body-s lf-platform-name"> {{link.platform | titlecase}} </span>
 
-    <span class="lf-icon-arrow"></span>
-  </button>
+      <span class="lf-icon-arrow"></span>
+    </button>
+  }
 </section>
