@@ -1,9 +1,11 @@
 <section class="lf-profile-header">
-  <img class="lf-profile-picture" src="" alt="Profile picture"/>
+  @if (profileData.image) {
+    <img class="lf-profile-picture" [src]="profileData.image" alt="Profile picture"/>
+  }
 
-  <span class="lf-profile-name lf-body-m">Nath LeGal</span>
+  <span class="lf-profile-name lf-body-m">{{profileData.firstName}} {{profileData.lastName}}</span>
 
-  <span class="lf-profile-email lf-body-s">nath_legal.gmail.com</span>
+  <span class="lf-profile-email lf-body-s">{{profileData.email}}</span>
 </section>
 
 <section class="lf-profile-buttons-container">

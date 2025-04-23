@@ -4,6 +4,8 @@ import {LinkUpdateService} from '../../../services/link-update.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
+import {ProfileUpdateService} from '../../../services/profile-update.service';
+import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interface';
 
 @Component({
   selector: 'lf-profile-preview',
@@ -16,10 +18,18 @@ import {TitleCasePipe} from '@angular/common';
 })
 export class LfProfilePreviewComponent {
   savedLinks: LinkCardInterface[] = [];
+  profileData: LfProfileDataInterface = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    image: ''
+  };
 
   constructor(private _linkUpdateService: LinkUpdateService,
+              private _profileUpdateService: ProfileUpdateService,
               private _cd: ChangeDetectorRef) {
     this._listenToLinkService();
+    this._listenToProfileService();
   }
 
   openLink(url: string): void {
@@ -31,6 +41,15 @@ export class LfProfilePreviewComponent {
     this._linkUpdateService.getSavedLinks()
       .pipe(takeUntilDestroyed())
       .subscribe(links => this._mapSavedLinks(links));
+  }
+
+  private _listenToProfileService(): void {
+    this._profileUpdateService.getProfile()
+      .pipe(takeUntilDestroyed())
+      .subscribe(profile => {
+        this.profileData = profile;
+        this._cd.markForCheck();
+      });
   }
 
   private _mapSavedLinks(links: LinkCardInterface[]): void {

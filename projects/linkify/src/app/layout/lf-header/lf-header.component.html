@@ -1,6 +1,6 @@
 <section class="lf-header-container">
   <div class="lf-header-left">
-    <img class="lf-header-logo" src="images/linkify-logo.svg"/>
+    <img class="lf-header-logo" src="images/linkify-logo.svg" alt="Linkify logo"/>
 
     <span class="lf-header-app-name lf-heading-s">Linkify</span>
   </div>
@@ -8,13 +8,13 @@
   <div class="lf-header-center">
     <lf-tab [iconSrc]="'lf-icon-link'"
             [text]="'Links'"
-            [active]="selectedTab === 'Links'"
-            (tabClick)="onTabPressed('Links')"/>
+            [active]="selectedTab === 'links'"
+            (tabClick)="onTabPressed('links')"/>
 
     <lf-tab [iconSrc]="'lf-icon-profile'"
             [text]="'Profile Details'"
-            [active]="selectedTab === 'Profile Details'"
-            (tabClick)="onTabPressed('Profile Details')"/>
+            [active]="selectedTab === 'profile'"
+            (tabClick)="onTabPressed('profile')"/>
   </div>
 
   <div class="lf-header-right">

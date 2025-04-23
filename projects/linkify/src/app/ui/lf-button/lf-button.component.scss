@@ -30,7 +30,7 @@
     background-color: var(--lf-primary-white);
     border: 1px solid var(--lf-primary-purple);
 
-    &.active {
+    &.active, &:hover {
       background-color: var(--lf-background-light-purple);
     }
 

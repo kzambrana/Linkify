@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {LfButtonComponent} from '../../ui/lf-button/lf-button.component';
 import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
+import {SelectedTabService} from '../../services/selected-tab.service';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'lf-header',
@@ -13,9 +15,19 @@ import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfHeaderComponent {
-  selectedTab: string = 'Links';
+  selectedTab: string = '';
+
+  constructor(private _selectedTabService: SelectedTabService) {
+    this._listenToSelectedTab();
+  }
 
   public onTabPressed(tabName: string): void {
-    this.selectedTab = tabName;
+    this._selectedTabService.setSelectedTab(tabName);
+  }
+
+  private _listenToSelectedTab(): void {
+    this._selectedTabService.getSelectedTab()
+      .pipe(takeUntilDestroyed())
+      .subscribe(selectedTab => this.selectedTab = selectedTab);
   }
 }
