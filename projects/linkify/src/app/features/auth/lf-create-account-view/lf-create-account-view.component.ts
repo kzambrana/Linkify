@@ -63,7 +63,7 @@ export default class LfCreateAccountViewComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      console.log('Valid form!');
+      this.router.navigate(['customize-links']);
     }
   }
 

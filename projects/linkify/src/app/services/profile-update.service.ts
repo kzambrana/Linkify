@@ -1,24 +1,23 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import {LfProfileDataInterface} from '../interfaces/lf-profile-data.interface';
+import {Injectable, signal, WritableSignal} from '@angular/core';
+import { LfProfileDataInterface } from '../interfaces/lf-profile-data.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileUpdateService {
-  private _profileSubject = new BehaviorSubject<LfProfileDataInterface>({
+  private _profile: WritableSignal<LfProfileDataInterface> = signal<LfProfileDataInterface>({
     firstName: '',
     lastName: '',
     email: '',
     image: ''
   });
 
-  public getProfile(): Observable<LfProfileDataInterface> {
-    return this._profileSubject.asObservable();
+  public get profile(): WritableSignal<LfProfileDataInterface> {
+    return this._profile;
   }
 
   public updateProfile(profile: Partial<LfProfileDataInterface>): void {
-    const current = this._profileSubject.getValue();
-    this._profileSubject.next({ ...current, ...profile });
+    const current = this._profile();
+    this._profile.set({ ...current, ...profile });
   }
 }

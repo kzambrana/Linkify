@@ -58,7 +58,7 @@ export class LfLinkCardComponent {
     this.deletedCardEmitter.emit(this.dataLink().id);
   }
 
-  get urlErrorMessage(): string {
+  public get urlErrorMessage(): string {
     const control = this.linkControl;
     if (!control.touched || control.valid) return '';
 

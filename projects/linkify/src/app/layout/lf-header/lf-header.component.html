@@ -8,12 +8,12 @@
   <div class="lf-header-center">
     <lf-tab [iconSrc]="'lf-icon-link'"
             [text]="'Links'"
-            [active]="selectedTab === 'links'"
+            [active]="selectedTab() === 'links'"
             (tabClick)="onTabPressed('links')"/>
 
     <lf-tab [iconSrc]="'lf-icon-profile'"
             [text]="'Profile Details'"
-            [active]="selectedTab === 'profile'"
+            [active]="selectedTab() === 'profile'"
             (tabClick)="onTabPressed('profile')"/>
   </div>
 

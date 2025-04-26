@@ -21,7 +21,7 @@ export class LfProfileEditionComponent {
   email: string = '';
   imagePreview: string | null = null;
 
-  private readonly maxFileSize = 1024 * 1024; // 1MB
+  private readonly maxFileSize = 1024 * 1024;
   private readonly maxWidth = 1024;
   private readonly maxHeight = 1024;
   private readonly allowedTypes = ['image/png', 'image/jpeg'];

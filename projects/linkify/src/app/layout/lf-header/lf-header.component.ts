@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, WritableSignal} from '@angular/core';
 import {LfButtonComponent} from '../../ui/lf-button/lf-button.component';
 import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
 import {SelectedTabService} from '../../services/selected-tab.service';
@@ -15,19 +15,13 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfHeaderComponent {
-  selectedTab: string = '';
+  selectedTab: WritableSignal<string>;
 
   constructor(private _selectedTabService: SelectedTabService) {
-    this._listenToSelectedTab();
+    this.selectedTab = this._selectedTabService.selectedTab;
   }
 
   public onTabPressed(tabName: string): void {
     this._selectedTabService.setSelectedTab(tabName);
-  }
-
-  private _listenToSelectedTab(): void {
-    this._selectedTabService.getSelectedTab()
-      .pipe(takeUntilDestroyed())
-      .subscribe(selectedTab => this.selectedTab = selectedTab);
   }
 }

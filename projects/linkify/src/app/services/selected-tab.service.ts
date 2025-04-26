@@ -1,17 +1,14 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable, signal, WritableSignal} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class SelectedTabService {
-  private _selectedTab = new BehaviorSubject<string>('');
+  private _selectedTab: WritableSignal<string> = signal<string>('');
 
-  public getSelectedTab(): Observable<string> {
-    return this._selectedTab.asObservable();
+  public get selectedTab(): WritableSignal<string> {
+    return this._selectedTab;
   }
 
   public setSelectedTab(tab: string): void {
-    this._selectedTab.next(tab);
+    this._selectedTab.set(tab);
   }
 }

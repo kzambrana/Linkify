@@ -6,7 +6,7 @@
     </div>
 
   <div class="lf-main-links-right-container">
-    @if (selectedTab === 'links') {
+    @if (selectedTab() === 'links') {
       <lf-customize-links></lf-customize-links>
     } @else {
       <lf-profile-edition></lf-profile-edition>
