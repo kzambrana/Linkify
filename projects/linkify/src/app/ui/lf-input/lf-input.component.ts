@@ -11,6 +11,7 @@ export class LfInputComponent {
   public placeholder = input<string>('');
   public iconPath = input<string>('');
   public errorMessage = input<string>('');
+  public value = input<string>('');
   public inputValueChange = output<string>();
   public isActive = false;
 

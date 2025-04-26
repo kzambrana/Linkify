@@ -1,9 +1,17 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ViewChild,
+  WritableSignal
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ProfileUpdateService} from '../../../services/profile-update.service';
+import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interface';
 
 @Component({
   selector: 'lf-profile-edition',
@@ -21,6 +29,7 @@ export class LfProfileEditionComponent {
   public email: string = '';
   public imagePreview: string | null = null;
   public form: FormGroup;
+  public profileData: WritableSignal<LfProfileDataInterface>;
 
   private readonly _maxFileSize = 1024 * 1024;
   private readonly _maxWidth = 1024;
@@ -35,6 +44,7 @@ export class LfProfileEditionComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
     });
+    this.profileData = this._profileUpdateService.profile;
   }
 
   public onImageSelected(event: Event): void {
@@ -89,7 +99,6 @@ export class LfProfileEditionComponent {
 
   private setImagePreview(imageSrc: string): void {
     this.imagePreview = imageSrc;
-    this._profileUpdateService.updateProfile({ image: this.imagePreview });
     this._cdr.detectChanges();
   }
 
@@ -100,6 +109,13 @@ export class LfProfileEditionComponent {
   public saveProfile(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+    } else {
+      this._profileUpdateService.updateProfile({
+        firstName: this.form.get('firstName')?.value,
+        lastName: this.form.get('lastName')?.value,
+        email: this.form.get('email')?.value,
+        image: this.imagePreview ? this.imagePreview : '',
+      });
     }
   }
 
@@ -128,7 +144,5 @@ export class LfProfileEditionComponent {
   public onInputValueChange(field: string, value: string): void {
     this.form.get(field)?.setValue(value);
     this.form.get(field)?.markAsTouched();
-
-    this._profileUpdateService.updateProfile({ [field]: value });
   }
 }

@@ -1,21 +1,20 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable, signal, WritableSignal} from '@angular/core';
 import {LinkCardInterface} from '../interfaces/lf-link-card.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinkUpdateService {
-  private _savedLinksSubject = new BehaviorSubject<LinkCardInterface[]>([]);
+  private _savedLinks: WritableSignal<LinkCardInterface[]> = signal<LinkCardInterface[]>([]);
 
-  public getSavedLinks(): Observable<LinkCardInterface[]> {
-    return this._savedLinksSubject.asObservable();
+  public getSavedLinks(): WritableSignal<LinkCardInterface[]> {
+    return this._savedLinks;
   }
 
-  public updateSavedLinks(links: LinkCardInterface[]): void {
+  public setSavedLinks(links: LinkCardInterface[]): void {
     const validLinks = links.filter(link =>
       link.platform?.trim() && link.link?.trim()
     );
-    this._savedLinksSubject.next(validLinks);
+    this._savedLinks.set(validLinks);
   }
 }

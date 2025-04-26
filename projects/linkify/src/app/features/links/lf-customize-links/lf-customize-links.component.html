@@ -11,25 +11,25 @@
   <lf-button [primary]="false" buttonText="+ Add new link" (click)="addLinkCard()"/>
 
   @if (linksList.length > 0) {
-    <div class="lf-manage-links-container">
+    <div class="lf-manage-links-container" #linksContainer>
       @for (link of linksList; track link.id; ) {
-        <lf-link-card
-          [@cardAnimation]
-          [cardNumber]="$index + 1"
-          [dataLink]="link"
-          [platformOptions]="LF_PLATFORMS_LIST"
-          (updatedLinkEmitter)="updateLinkData($event)"
-          (deletedCardEmitter)="deleteLinkCard($event)"/>
+        <lf-link-card [cardNumber]="$index + 1"
+                      [dataLink]="link"
+                      [platformOptions]="LF_PLATFORMS_LIST"
+                      (updatedLinkEmitter)="updateLinkData($event)"
+                      (deletedCardEmitter)="deleteLinkCard($event)"/>
       }
     </div>
   } @else {
     <section class="lf-customize-links-placeholder">
-      <img class="lf-customize-links-placeholder-image" src="images/phone-placeholder.svg"
+      <img class="lf-customize-links-placeholder-image"
+           src="images/phone-placeholder.svg"
            alt="Customize links placeholder"/>
 
       <span class="lf-heading-m">Let’s get you started</span>
 
-      <p class="lf-body-m lf-description">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We’re here to help you share your profiles with everyone!</p>
+      <p class="lf-body-m lf-description">Use the “Add new link” button to get started. Once you have more than one
+        link, you can reorder and edit them. We’re here to help you share your profiles with everyone!</p>
     </section>
   }
 </section>

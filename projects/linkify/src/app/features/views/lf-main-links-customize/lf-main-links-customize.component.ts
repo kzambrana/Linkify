@@ -22,7 +22,6 @@ export default class LfMainLinksCustomizeComponent {
   public selectedTab: WritableSignal<string>;
 
   constructor(private _selectedTabService: SelectedTabService) {
-    this._selectedTabService.setSelectedTab('profile');
     this.selectedTab = this._selectedTabService.selectedTab;
   }
 }

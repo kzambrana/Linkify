@@ -53,6 +53,13 @@
 
     lf-input {
       width: 100%;
+      background-color: var(--lf-primary-white);
+      border-radius: 8px;
+    }
+
+    lf-drop-down {
+      background-color: var(--lf-primary-white);
+      border-radius: 8px;
     }
   }
 }
