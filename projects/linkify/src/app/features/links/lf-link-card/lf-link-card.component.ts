@@ -17,13 +17,13 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfLinkCardComponent {
-  platformOptions = input<LfDropDownOption[]>([]);
-  cardNumber = input<number>(0);
-  dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});
-  deletedCardEmitter = output<string>();
-  updatedLinkEmitter = output<LinkCardInterface>();
+  public platformOptions = input<LfDropDownOption[]>([]);
+  public cardNumber = input<number>(0);
+  public dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});
+  public deletedCardEmitter = output<string>();
+  public updatedLinkEmitter = output<LinkCardInterface>();
 
-  linkControl = new FormControl('', [
+  public linkControl = new FormControl('', [
     Validators.required,
     Validators.pattern(/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/)
   ]);

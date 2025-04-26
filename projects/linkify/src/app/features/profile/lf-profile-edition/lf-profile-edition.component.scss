@@ -129,10 +129,11 @@
       span {
         color: var(--lf-secondary-font-color);
       }
-    }
 
-    lf-input {
-      width: 70%;
+      lf-input {
+        width: 70%;
+        background-color: var(--lf-primary-white);
+      }
     }
   }
 }

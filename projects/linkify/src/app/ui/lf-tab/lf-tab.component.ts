@@ -6,10 +6,10 @@ import {Component, input, output} from '@angular/core';
   styleUrls: ['./lf-tab.component.scss']
 })
 export class LfTabComponent {
-  text = input<string>('');
-  iconSrc = input<string>('');
-  active = input<boolean>(false);
-  tabClick = output<void>();
+  public text = input<string>('');
+  public iconSrc = input<string>('');
+  public active = input<boolean>(false);
+  public tabClick = output<void>();
 
   public handleClick(): void {
     this.tabClick.emit();

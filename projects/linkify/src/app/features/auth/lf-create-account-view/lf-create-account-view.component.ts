@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'lf-create-account-view',
@@ -16,11 +16,11 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LfCreateAccountViewComponent {
-  form: FormGroup;
+  public form: FormGroup;
 
-  constructor(private fb: FormBuilder,
-              private router: Router) {
-    this.form = this.fb.group({
+  constructor(private _fb: FormBuilder,
+              private _router: Router) {
+    this.form = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
@@ -63,11 +63,11 @@ export default class LfCreateAccountViewComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      this.router.navigate(['customize-links']);
+      this._router.navigate(['customize-links']);
     }
   }
 
   public goToLoginView(): void {
-    this.router.navigate(['/auth/login']);
+    this._router.navigate(['/auth/login']);
   }
 }

@@ -11,15 +11,15 @@ import {CommonModule} from '@angular/common';
   standalone: true
 })
 export class LfDropdownComponent {
-  options = input<LfDropDownOption[]>([]);
-  selected = signal<LfDropDownOption>({
+  public options = input<LfDropDownOption[]>([]);
+  public selected = signal<LfDropDownOption>({
     label: '',
     value: '',
     iconPath: '',
     color: ''
   });
-  optionSelected = output<LfDropDownOption>();
-  isOpen = false;
+  public optionSelected = output<LfDropDownOption>();
+  public isOpen = false;
 
   public toggleDropdown(): void {
     this.isOpen = !this.isOpen;

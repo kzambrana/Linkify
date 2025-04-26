@@ -19,7 +19,7 @@ import {LfProfileEditionComponent} from '../../profile/lf-profile-edition/lf-pro
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LfMainLinksCustomizeComponent {
-  selectedTab: WritableSignal<string>;
+  public selectedTab: WritableSignal<string>;
 
   constructor(private _selectedTabService: SelectedTabService) {
     this._selectedTabService.setSelectedTab('profile');

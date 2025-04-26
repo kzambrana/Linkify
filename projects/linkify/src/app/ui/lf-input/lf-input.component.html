@@ -1,25 +1,25 @@
 <div class="lf-input-container"
      [class.lf-input-container--active]="isActive"
      [class.lf-input-container--error]="!!errorMessage() && !isActive">
-    <div class="lf-input-left-container">
-        @if (!!iconPath()) {
-            <div class="lf-input-icon">
-              <span [class]="iconPath()"></span>
-            </div>
-        }
-        <input class="lf-input"
-               [type]="type()"
-               [placeholder]="placeholder()"
-               (focus)="onFocus()"
-               (blur)="onBlur()"
-               (input)="onInputChange($event)"/>
-    </div>
+  <div class="lf-input-left-container">
+    @if (!!iconPath()) {
+      <div class="lf-input-icon">
+        <span [class]="iconPath()"></span>
+      </div>
+    }
+    <input class="lf-input"
+           [type]="type()"
+           [placeholder]="placeholder()"
+           (focus)="onFocus()"
+           (blur)="onBlur()"
+           (input)="onInputChange($event)"/>
+  </div>
 
-    @if (!!errorMessage() && !isActive) {
-        <div class="lf-input-right-container">
+  @if (!!errorMessage() && !isActive) {
+    <div class="lf-input-right-container">
             <span class="lf-input-error-message">
                 {{ errorMessage() }}
             </span>
-        </div>
-    }
+    </div>
+  }
 </div>

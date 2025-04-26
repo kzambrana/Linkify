@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, output} from '@angular/core';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfLinkCardComponent} from '../lf-link-card/lf-link-card.component';
-import {LfPlatformsList} from "../../../utils/lf-platforms-list.constant";
-import {LfDropDownOption} from "../../../interfaces/lf-drop-down-option.interface";
-import {LinkCardInterface} from "../../../interfaces/lf-link-card.interface";
+import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
+import {LfDropDownOption} from '../../../interfaces/lf-drop-down-option.interface';
+import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
 import {LinkUpdateService} from '../../../services/link-update.service';
 
 @Component({
@@ -17,12 +17,12 @@ import {LinkUpdateService} from '../../../services/link-update.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LfCustomizeLinksComponent {
-  linksList: LinkCardInterface[] = [];
-  emptyListEmitter = output<boolean>();
+  public linksList: LinkCardInterface[] = [];
+  public emptyListEmitter = output<boolean>();
 
-  readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
+  public readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
 
-  constructor(private linkUpdateService: LinkUpdateService) {
+  constructor(private _linkUpdateService: LinkUpdateService) {
   }
 
   public addLinkCard(): void {
@@ -49,7 +49,7 @@ export default class LfCustomizeLinksComponent {
 
   public saveLinks(): void {
     const validLinks = this.linksList.filter(linkCard => linkCard.platform !== '' && linkCard.link !== '');
-    this.linkUpdateService.updateSavedLinks(validLinks);
+    this._linkUpdateService.updateSavedLinks(validLinks);
   }
 
   private _generateId(): string {

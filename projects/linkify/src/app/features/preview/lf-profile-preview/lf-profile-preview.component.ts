@@ -17,8 +17,8 @@ import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interf
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfProfilePreviewComponent {
-  savedLinks: LinkCardInterface[] = [];
-  profileData: WritableSignal<LfProfileDataInterface>;
+  public savedLinks: LinkCardInterface[] = [];
+  public profileData: WritableSignal<LfProfileDataInterface>;
 
   constructor(private _linkUpdateService: LinkUpdateService,
               private _profileUpdateService: ProfileUpdateService,
