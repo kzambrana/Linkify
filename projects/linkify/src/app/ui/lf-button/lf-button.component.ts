@@ -7,11 +7,11 @@ import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfButtonComponent {
-  buttonText = input<string>('');
-  disabled = input<boolean>(false);
-  primary = input<boolean>(false);
+  public buttonText = input<string>('');
+  public disabled = input<boolean>(false);
+  public primary = input<boolean>(false);
 
-  clickEmitter = output<void>();
+  public clickEmitter = output<void>();
 
   public onClick(): void {
     if (this.disabled()) return;

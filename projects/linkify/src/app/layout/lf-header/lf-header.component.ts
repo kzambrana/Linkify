@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, WritableSignal} from '@angular/core';
 import {LfButtonComponent} from '../../ui/lf-button/lf-button.component';
 import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
+import {SelectedTabService} from '../../services/selected-tab.service';
 
 @Component({
   selector: 'lf-header',
@@ -13,9 +14,13 @@ import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfHeaderComponent {
-  selectedTab: string = 'Links';
+  public selectedTab: WritableSignal<string>;
+
+  constructor(private _selectedTabService: SelectedTabService) {
+    this.selectedTab = this._selectedTabService.selectedTab;
+  }
 
   public onTabPressed(tabName: string): void {
-    this.selectedTab = tabName;
+    this._selectedTabService.setSelectedTab(tabName);
   }
 }

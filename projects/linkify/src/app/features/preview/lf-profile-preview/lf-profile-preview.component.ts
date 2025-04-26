@@ -1,9 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, WritableSignal} from '@angular/core';
 import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
 import {LinkUpdateService} from '../../../services/link-update.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
+import {ProfileUpdateService} from '../../../services/profile-update.service';
+import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interface';
 
 @Component({
   selector: 'lf-profile-preview',
@@ -15,14 +17,17 @@ import {TitleCasePipe} from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfProfilePreviewComponent {
-  savedLinks: LinkCardInterface[] = [];
+  public savedLinks: LinkCardInterface[] = [];
+  public profileData: WritableSignal<LfProfileDataInterface>;
 
   constructor(private _linkUpdateService: LinkUpdateService,
+              private _profileUpdateService: ProfileUpdateService,
               private _cd: ChangeDetectorRef) {
     this._listenToLinkService();
+    this.profileData = this._profileUpdateService.profile;
   }
 
-  openLink(url: string): void {
+  public openLink(url: string): void {
     if (!url) return;
     window.open(url, '_blank');
   }

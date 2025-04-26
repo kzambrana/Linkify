@@ -12,11 +12,11 @@ import {Router} from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LfLoginViewComponent {
-  form: FormGroup;
+  public form: FormGroup;
 
-  constructor(private fb: FormBuilder,
-              private router: Router) {
-    this.form = this.fb.group({
+  constructor(private _fb: FormBuilder,
+              private _router: Router) {
+    this.form = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
@@ -50,11 +50,11 @@ export default class LfLoginViewComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      console.log('Valid form!');
+      this._router.navigate(['customize-links']);
     }
   }
 
   public goToCreateAccount(): void {
-    this.router.navigate(['auth/create-account']);
+    this._router.navigate(['auth/create-account']);
   }
 }
