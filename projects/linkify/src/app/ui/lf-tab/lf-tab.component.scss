@@ -25,4 +25,8 @@
     background-color: var(--lf-background-light-purple);
     color: var(--lf-primary-purple);
   }
+
+  &:focus-visible {
+    outline: none;
+  }
 }

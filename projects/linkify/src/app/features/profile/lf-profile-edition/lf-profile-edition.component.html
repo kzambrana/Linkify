@@ -43,6 +43,7 @@
 
       <lf-input type="text"
                 placeholder="e.g. John"
+                [value]="profileData().firstName"
                 [errorMessage]="getErrorMessage('firstName')"
                 (inputValueChange)="onInputValueChange('firstName', $event)"/>
     </div>
@@ -52,6 +53,7 @@
 
       <lf-input type="text"
                 placeholder="e.g. Appleseed"
+                [value]="profileData().lastName"
                 [errorMessage]="getErrorMessage('lastName')"
                 (inputValueChange)="onInputValueChange('lastName', $event)"/>
     </div>
@@ -61,6 +63,7 @@
 
       <lf-input type="email"
                 placeholder="e.g. email@example.com"
+                [value]="profileData().email"
                 [errorMessage]="getErrorMessage('email')"
                 (inputValueChange)="onInputValueChange('email', $event)"/>
     </div>

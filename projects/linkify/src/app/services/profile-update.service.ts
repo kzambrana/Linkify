@@ -16,8 +16,7 @@ export class ProfileUpdateService {
     return this._profile;
   }
 
-  public updateProfile(profile: Partial<LfProfileDataInterface>): void {
-    const current = this._profile();
-    this._profile.set({ ...current, ...profile });
+  public updateProfile(profile: LfProfileDataInterface): void {
+    this._profile.set(profile);
   }
 }

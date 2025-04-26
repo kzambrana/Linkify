@@ -22,13 +22,23 @@ export class LfLinkCardComponent {
   public dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});
   public deletedCardEmitter = output<string>();
   public updatedLinkEmitter = output<LinkCardInterface>();
-
-  public linkControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/)
-  ]);
+  public linkControl!: FormControl<string>;
 
   constructor() {
+    this._initializeLinkControl();
+  }
+
+  private _initializeLinkControl(): void {
+    const initialLink = this.dataLink().link || '';
+
+    this.linkControl = new FormControl(initialLink, {
+      validators: [
+        Validators.required,
+        Validators.pattern(/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/)
+      ],
+      nonNullable: true
+    });
+
     this._listenToLinkService();
   }
 
@@ -66,5 +76,15 @@ export class LfLinkCardComponent {
     if (control.hasError('pattern')) return `Please check the URL`;
 
     return '';
+  }
+  public getSelectedPlatformOption(): LfDropDownOption {
+    const platform = this.dataLink().platform;
+    const selectedOption = this.platformOptions().find(opt => opt.value === platform);
+    return selectedOption ?? {
+      label: '',
+      value: '',
+      iconPath: '',
+      color: ''
+    };
   }
 }

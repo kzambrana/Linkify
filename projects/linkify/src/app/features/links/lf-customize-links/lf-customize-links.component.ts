@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, Component, output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, output, ViewChild} from '@angular/core';
 import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfLinkCardComponent} from '../lf-link-card/lf-link-card.component';
 import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
 import {LfDropDownOption} from '../../../interfaces/lf-drop-down-option.interface';
 import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
 import {LinkUpdateService} from '../../../services/link-update.service';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'lf-customize-links',
@@ -17,12 +18,15 @@ import {LinkUpdateService} from '../../../services/link-update.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LfCustomizeLinksComponent {
+  @ViewChild('linksContainer') public linksContainerRef!: ElementRef<HTMLDivElement>;
+
   public linksList: LinkCardInterface[] = [];
   public emptyListEmitter = output<boolean>();
 
   public readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
 
   constructor(private _linkUpdateService: LinkUpdateService) {
+    this.linksList = this._linkUpdateService.getSavedLinks()();
   }
 
   public addLinkCard(): void {
@@ -32,6 +36,7 @@ export default class LfCustomizeLinksComponent {
       link: '',
     });
     this._emitIsEmptyList();
+    this._scrollToBottom();
   }
 
   public deleteLinkCard(deletedCardId: string) {
@@ -49,7 +54,7 @@ export default class LfCustomizeLinksComponent {
 
   public saveLinks(): void {
     const validLinks = this.linksList.filter(linkCard => linkCard.platform !== '' && linkCard.link !== '');
-    this._linkUpdateService.updateSavedLinks(validLinks);
+    this._linkUpdateService.setSavedLinks(validLinks);
   }
 
   private _generateId(): string {
@@ -58,5 +63,15 @@ export default class LfCustomizeLinksComponent {
 
   private _emitIsEmptyList(): void {
     this.linksList.length === 0 ? this.emptyListEmitter.emit(true) : this.emptyListEmitter.emit(false);
+  }
+
+  private _scrollToBottom(): void {
+    if (!this.linksContainerRef?.nativeElement) return;
+    timer(20).subscribe(() => {
+      this.linksContainerRef.nativeElement.scrollTo({
+        top: this.linksContainerRef.nativeElement.scrollHeight,
+        behavior: 'smooth'
+      });
+    });
   }
 }

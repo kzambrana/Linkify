@@ -7,18 +7,19 @@
 
   <div class="lf-header-center">
     <lf-tab [iconSrc]="'lf-icon-link'"
-            [text]="'Links'"
-            [active]="selectedTab() === 'links'"
-            (tabClick)="onTabPressed('links')"/>
+            text="Links"
+            [active]="selectedTab() === LfLinkTabRoutes.LINKS"
+            (tabClick)="onTabPressed(LfLinkTabRoutes.LINKS)"/>
 
     <lf-tab [iconSrc]="'lf-icon-profile'"
-            [text]="'Profile Details'"
-            [active]="selectedTab() === 'profile'"
-            (tabClick)="onTabPressed('profile')"/>
+            text="Profile Details"
+            [active]="selectedTab() === LfLinkTabRoutes.PROFILE"
+            (tabClick)="onTabPressed(LfLinkTabRoutes.PROFILE)"/>
   </div>
 
   <div class="lf-header-right">
-    <lf-button [buttonText]="'Preview'"
+    <lf-button buttonText="Preview"
+               (clickEmitter)="navigateToPreview()"
                [primary]="false"/>
   </div>
 </section>

@@ -3,6 +3,7 @@ import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
 import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {LfNavigationRoutes} from '../../../utils/lf-navigation-routes.enum';
 
 @Component({
   selector: 'lf-create-account-view',
@@ -63,11 +64,11 @@ export default class LfCreateAccountViewComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      this._router.navigate(['customize-links']);
+      this._router.navigate([LfNavigationRoutes.CUSTOMIZE_LINKS]);
     }
   }
 
   public goToLoginView(): void {
-    this._router.navigate(['/auth/login']);
+    this._router.navigate([`${LfNavigationRoutes.AUTH}/${LfNavigationRoutes.LOGIN}`]);
   }
 }

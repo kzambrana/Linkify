@@ -1,11 +1,17 @@
 <section class="lf-profile-header">
-  @if (profileData().image) {
-    <img class="lf-profile-picture" [src]="profileData().image" alt="Profile picture"/>
-  }
+  <div class="lf-profile-header-image-container">
+    @if (profileData().image) {
+      <img class="lf-profile-picture" [src]="profileData().image" alt="Profile picture"/>
+    }
+  </div>
 
-  <span class="lf-profile-name lf-body-m">{{ profileData().firstName }} {{ profileData().lastName }}</span>
+  <div class="lf-profile-header-name-container" [class.active]="profileData().firstName || profileData().lastName">
+    <span class="lf-profile-name lf-body-m">{{ profileData().firstName }} {{ profileData().lastName }}</span>
+  </div>
 
-  <span class="lf-profile-email lf-body-s">{{ profileData().email }}</span>
+  <div class="lf-profile-header-email-container" [class.active]="profileData().email">
+    <span class="lf-profile-email lf-body-s">{{ profileData().email }}</span>
+  </div>
 </section>
 
 <section class="lf-profile-buttons-container">

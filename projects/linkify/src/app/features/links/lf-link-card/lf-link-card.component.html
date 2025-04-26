@@ -13,9 +13,10 @@
   <div class="lf-input-platform">
     <span class="lf-body-s">Platform</span>
 
-    <lf-drop-down
-      [options]="platformOptions()"
-      (optionSelected)="onPlatformSelect($event)"/>
+    <lf-drop-down placeholder="Select a platform"
+                  [options]="platformOptions()"
+                  [preSelectedOption]="getSelectedPlatformOption()"
+                  (selectedOptionEmitter)="onPlatformSelect($event)"/>
   </div>
 
   <div class="lf-input-link">
@@ -24,6 +25,7 @@
     <lf-input placeholder="e.g. https://www.github.com/johnappleseed"
               iconPath="lf-icon-link"
               [errorMessage]="urlErrorMessage"
+              [value]="dataLink().link"
               (inputValueChange)="onLinkChange($event)"/>
   </div>
 </section>

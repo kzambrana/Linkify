@@ -1,16 +1,17 @@
-<div class="lf-drop-down-container" [class.lf-drop-down-container--active]="isOpen">
+<div class="lf-drop-down-container"
+     [class.lf-drop-down-container--active]="isOpen"
+     #dropdownContainer>
   <div class="lf-drop-down-selected" (click)="toggleDropdown()">
-    @if (selected()) {
+    @if (!this.selected().value) {
+      <span class="lf-drop-down-placeholder">{{ placeholder() }}</span>
+    } @else {
       <span class="lf-drop-down-icon" [class]="selected().iconPath"></span>
 
       <span class="lf-drop-down-label">{{ selected().label }}</span>
-    } @else {
-      <span class="lf-drop-down-placeholder">Select a platform</span>
     }
   </div>
 
-  @if (isOpen) {
-    <div class="lf-drop-down-options">
+    <div class="lf-drop-down-options" [style.display]="isOpen ? 'block' : 'none'">
       @for (option of options(); track option.value) {
         <div class="lf-drop-down-option" (click)="selectOption(option)">
           <span class="lf-drop-down-icon" [class]="option.iconPath"></span>
@@ -19,5 +20,4 @@
         </div>
       }
     </div>
-  }
 </div>

@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, WritableSignal} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, WritableSignal} from '@angular/core';
 import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
 import {LinkUpdateService} from '../../../services/link-update.service';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
 import {ProfileUpdateService} from '../../../services/profile-update.service';
@@ -33,9 +32,10 @@ export class LfProfilePreviewComponent {
   }
 
   private _listenToLinkService(): void {
-    this._linkUpdateService.getSavedLinks()
-      .pipe(takeUntilDestroyed())
-      .subscribe(links => this._mapSavedLinks(links));
+    effect(() => {
+      const links = this._linkUpdateService.getSavedLinks()();
+      this._mapSavedLinks(links);
+    });
   }
 
   private _mapSavedLinks(links: LinkCardInterface[]): void {

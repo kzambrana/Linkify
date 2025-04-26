@@ -39,4 +39,12 @@
       cursor: not-allowed;
     }
   }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  span {
+    cursor: pointer;
+  }
 }
