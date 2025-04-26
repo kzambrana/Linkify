@@ -13,11 +13,11 @@ export class ProfileUpdateService {
     image: ''
   });
 
-  getProfile(): Observable<LfProfileDataInterface> {
+  public getProfile(): Observable<LfProfileDataInterface> {
     return this._profileSubject.asObservable();
   }
 
-  updateProfile(profile: Partial<LfProfileDataInterface>): void {
+  public updateProfile(profile: Partial<LfProfileDataInterface>): void {
     const current = this._profileSubject.getValue();
     this._profileSubject.next({ ...current, ...profile });
   }

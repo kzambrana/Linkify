@@ -32,7 +32,7 @@ export class LfProfilePreviewComponent {
     this._listenToProfileService();
   }
 
-  openLink(url: string): void {
+  public openLink(url: string): void {
     if (!url) return;
     window.open(url, '_blank');
   }

@@ -8,11 +8,11 @@ import {LinkCardInterface} from '../interfaces/lf-link-card.interface';
 export class LinkUpdateService {
   private _savedLinksSubject = new BehaviorSubject<LinkCardInterface[]>([]);
 
-  getSavedLinks(): Observable<LinkCardInterface[]> {
+  public getSavedLinks(): Observable<LinkCardInterface[]> {
     return this._savedLinksSubject.asObservable();
   }
 
-  updateSavedLinks(links: LinkCardInterface[]): void {
+  public updateSavedLinks(links: LinkCardInterface[]): void {
     const validLinks = links.filter(link =>
       link.platform?.trim() && link.link?.trim()
     );
