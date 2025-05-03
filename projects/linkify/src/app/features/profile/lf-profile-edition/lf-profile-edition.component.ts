@@ -7,11 +7,11 @@ import {
   WritableSignal
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
-import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
+import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
+import {LfInputComponent} from '@ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ProfileUpdateService} from '../../../services/profile-update.service';
-import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interface';
+import {ProfileUpdateService} from '@services/profile-update.service';
+import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
 
 @Component({
   selector: 'lf-profile-edition',
@@ -93,6 +93,7 @@ export class LfProfileEditionComponent {
         return;
       }
       this.setImagePreview(imageSrc);
+      this._profileUpdateService.updateProfile({image: imageSrc});
     };
     img.src = imageSrc;
   }
@@ -144,5 +145,7 @@ export class LfProfileEditionComponent {
   public onInputValueChange(field: string, value: string): void {
     this.form.get(field)?.setValue(value);
     this.form.get(field)?.markAsTouched();
+
+    this._profileUpdateService.updateProfile({[field]: value});
   }
 }

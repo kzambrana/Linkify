@@ -26,7 +26,7 @@ $lf-font-weight-bold: 600;
   line-height: 1.5;
 }
 
-/* Body typography styless*/
+/* Body typography styles*/
 .lf-body-s {
   font-family: $lf-instrument-sans-font-family;
   font-size: $lf-body-s-size;
@@ -39,8 +39,4 @@ $lf-font-weight-bold: 600;
   font-size: $lf-body-m-size;
   font-weight: $lf-font-weight-regular;
   line-height: 1.5;
-}
-
-:root {
-  --font-family-instrument-sans: #{$lf-instrument-sans-font-family}
 }

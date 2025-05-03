@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
-import {LfDropdownComponent} from '../../../ui/lf-drop-down/lf-drop-down.component';
-import {LfDropDownOption} from '../../../interfaces/lf-drop-down-option.interface';
-import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
+import {LfInputComponent} from '@ui/lf-input/lf-input.component';
+import {LfDropdownComponent} from '@ui/lf-drop-down/lf-drop-down.component';
+import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
+import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({

@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component, WritableSignal} from '@angular/core';
-import {LfButtonComponent} from '../../ui/lf-button/lf-button.component';
-import {LfTabComponent} from '../../ui/lf-tab/lf-tab.component';
-import {SelectedTabService} from '../../services/selected-tab.service';
+import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
+import {LfTabComponent} from '@ui/lf-tab/lf-tab.component';
+import {SelectedTabService} from '@services/selected-tab.service';
 import {Router} from '@angular/router';
-import {LfNavigationRoutes} from '../../utils/lf-navigation-routes.enum';
-import {LfLinkTabRoutes} from '../../utils/lf-link-tab-routes.enum';
+import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
+import {LfLinkTabRoutes} from '@utils/lf-link-tab-routes.enum';
 
 @Component({
   selector: 'lf-header',

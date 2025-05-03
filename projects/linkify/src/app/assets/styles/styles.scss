@@ -1,5 +1,9 @@
-@forward './variables/animations';
-@forward './variables/colors';
-@forward './variables/typography';
-@forward './variables/reset';
-@forward './fonts/font-faces';
+@use './variables/animations';
+@use './variables/colors';
+@use './variables/typography';
+@use './variables/reset';
+@use './layout/lf-button.component';
+@use './layout/lf-drop-down.component';
+@use './layout/lf-input.component';
+@use './layout/lf-tab.component';
+@use './fonts/font-faces';

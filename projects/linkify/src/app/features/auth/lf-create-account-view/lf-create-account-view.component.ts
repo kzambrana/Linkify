@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
-import {LfInputComponent} from '../../../ui/lf-input/lf-input.component';
+import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
+import {LfInputComponent} from '@ui/lf-input/lf-input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {LfNavigationRoutes} from '../../../utils/lf-navigation-routes.enum';
+import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
 
 @Component({
   selector: 'lf-create-account-view',

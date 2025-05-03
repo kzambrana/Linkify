@@ -1,5 +1,5 @@
 import {Injectable, signal, WritableSignal} from '@angular/core';
-import {LfLinkTabRoutes} from '../utils/lf-link-tab-routes.enum';
+import {LfLinkTabRoutes} from '@utils/lf-link-tab-routes.enum';
 
 @Injectable({providedIn: 'root'})
 export class SelectedTabService {

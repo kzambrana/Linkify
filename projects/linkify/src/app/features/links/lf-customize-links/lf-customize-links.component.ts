@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, ElementRef, output, ViewChild} from '@angular/core';
-import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
+import {ChangeDetectionStrategy, Component, effect, ElementRef, output, ViewChild, WritableSignal} from '@angular/core';
+import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
 import {LfLinkCardComponent} from '../lf-link-card/lf-link-card.component';
-import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
-import {LfDropDownOption} from '../../../interfaces/lf-drop-down-option.interface';
-import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
-import {LinkUpdateService} from '../../../services/link-update.service';
+import {LfPlatformsList} from '@utils/lf-platforms-list.constant';
+import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
+import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
+import {LinkUpdateService} from '@services/link-update.service';
 import {timer} from 'rxjs';
 
 @Component({
@@ -20,40 +20,43 @@ import {timer} from 'rxjs';
 export default class LfCustomizeLinksComponent {
   @ViewChild('linksContainer') public linksContainerRef!: ElementRef<HTMLDivElement>;
 
-  public linksList: LinkCardInterface[] = [];
+  public linksList:  WritableSignal<LinkCardInterface[]>
   public emptyListEmitter = output<boolean>();
 
-  public readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
+  readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
 
   constructor(private _linkUpdateService: LinkUpdateService) {
-    this.linksList = this._linkUpdateService.getSavedLinks()();
+    this.linksList = this._linkUpdateService.getSavedLinks();
+
+    effect(() => {this.linksList()});
   }
 
   public addLinkCard(): void {
-    this.linksList.push({
+    const updatedList = [...this.linksList(), {
       id: this._generateId(),
       platform: '',
       link: '',
-    });
+    }];
+    this._linkUpdateService.setSavedLinks(updatedList);
     this._emitIsEmptyList();
     this._scrollToBottom();
   }
 
   public deleteLinkCard(deletedCardId: string) {
-    this.linksList = this.linksList.filter(link => link.id !== deletedCardId);
-    this.saveLinks();
+    const updatedList = this.linksList().filter(link => link.id !== deletedCardId);
+    this._linkUpdateService.setSavedLinks(updatedList);
     this._emitIsEmptyList();
   }
 
   public updateLinkData(updatedLink: LinkCardInterface) {
-    const index = this.linksList.findIndex(link => link.id === updatedLink.id);
-    if (index > -1) {
-      this.linksList[index] = updatedLink;
-    }
+    const updatedList = this.linksList().map(link =>
+      link.id === updatedLink.id ? updatedLink : link
+    );
+    this._linkUpdateService.setSavedLinks(updatedList);
   }
 
   public saveLinks(): void {
-    const validLinks = this.linksList.filter(linkCard => linkCard.platform !== '' && linkCard.link !== '');
+    const validLinks = this.linksList().filter(linkCard => linkCard.platform !== '' && linkCard.link !== '');
     this._linkUpdateService.setSavedLinks(validLinks);
   }
 

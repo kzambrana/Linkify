@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 @Component({
   selector: 'lf-button',
   templateUrl: './lf-button.component.html',
-  styleUrl: './lf-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfButtonComponent {

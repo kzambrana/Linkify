@@ -1,3 +1,5 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
 :host {
   display: flex;
   width: 100%;
@@ -18,24 +20,25 @@
   .lf-profile-header-email-container {
     width: 50%;
     height: 10px;
-    background-color: var(--lf-background-light-gray);
+    background-color: colors.$lf-background-light-gray;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &.active {
       background-color: transparent;
     }
 
     .lf-profile-email {
-      color: var(--lf-secondary-font-color)
+      color: colors.$lf-secondary-gray;
     }
   }
 
   .lf-profile-header-name-container {
     width: 70%;
     height: 15px;
-    background-color: var(--lf-background-light-gray);
+    background-color: colors.$lf-background-light-gray;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -53,7 +56,7 @@
   .lf-profile-header-image-container {
     height: 100px;
     width: 100px;
-    background-color: var(--lf-background-light-gray);
+    background-color: colors.$lf-background-light-gray;
     border-radius: 50%;
 
     .lf-profile-picture {
@@ -81,7 +84,7 @@
     width: 100%;
     height: 40px;
     border-radius: 8px;
-    color: var(--lf-primary-white);
+    color: colors.$lf-primary-white;
     display: flex;
     justify-content: space-between;
     align-items: center;

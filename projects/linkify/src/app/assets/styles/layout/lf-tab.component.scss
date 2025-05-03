@@ -1,10 +1,12 @@
+@use './../variables/colors' as colors;
+
 .lf-tab-button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
-  color: var(--lf-secondary-font-color);
+  color: colors.$lf-secondary-gray;
   border: none;
   border-radius: 6px;
   font-weight: 500;
@@ -14,7 +16,7 @@
 
   &:hover {
     background-color: transparent;
-    color: var(--lf-primary-purple);
+    color: colors.$lf-primary-purple;
   }
 
   span {
@@ -22,8 +24,8 @@
   }
 
   &.active {
-    background-color: var(--lf-background-light-purple);
-    color: var(--lf-primary-purple);
+    background-color: colors.$lf-background-light-purple;
+    color: colors.$lf-primary-purple;
   }
 
   &:focus-visible {

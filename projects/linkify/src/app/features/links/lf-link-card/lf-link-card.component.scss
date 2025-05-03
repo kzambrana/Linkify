@@ -1,7 +1,9 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
 :host {
   display: flex;
   flex-direction: column;
-  background-color: var(--lf-background-light-gray);
+  background-color: colors.$lf-background-light-gray;
   padding: 15px;
   border-radius: 12px;
   gap: 12px;
@@ -12,10 +14,10 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  color: var(--lf-secondary-font-color);
+  color: colors.$lf-secondary-gray;
 
   .lf-input-remove-button {
-    color: var(--lf-secondary-font-color);
+    color: colors.$lf-secondary-gray;
     cursor: pointer;
   }
 
@@ -53,12 +55,12 @@
 
     lf-input {
       width: 100%;
-      background-color: var(--lf-primary-white);
+      background-color: colors.$lf-primary-white;
       border-radius: 8px;
     }
 
     lf-drop-down {
-      background-color: var(--lf-primary-white);
+      background-color: colors.$lf-primary-white;
       border-radius: 8px;
     }
   }

@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, WritableSignal} from '@angular/core'
 import {LfHeaderComponent} from '../../../layout/lf-header/lf-header.component';
 import LfCustomizeLinksComponent from '../../links/lf-customize-links/lf-customize-links.component';
 import {LfMobilePreviewComponent} from '../../preview/lf-mobile-preview/lf-mobile-preview.component';
-import {SelectedTabService} from '../../../services/selected-tab.service';
+import {SelectedTabService} from '@services/selected-tab.service';
 import {LfProfileEditionComponent} from '../../profile/lf-profile-edition/lf-profile-edition.component';
 
 @Component({

@@ -1,7 +1,9 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
 .lf-create-account-container {
   width: 100%;
   height: 100%;
-  background-color: var(--lf-background-light-gray);
+  background-color: colors.$lf-background-light-gray;
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
@@ -22,12 +24,12 @@
     flex-direction: column;
     width: 100%;
     max-width: 350px;
-    background-color: var(--lf-primary-white);
+    background-color: colors.$lf-primary-white;
     padding: 2rem;
     border-radius: 0.75rem;
     margin: 0 2rem;
 
-    &-header{
+    &-header {
       display: flex;
       gap: 5px;
       flex-direction: column;
@@ -35,28 +37,28 @@
       width: 100%;
 
       .lf-login-description {
-        color: var(--lf-secondary-font-color);
-      }
-    }
-
-    .lf-create-account-form-input-wrapper {
-      width: 100%;
-    }
-
-    .lf-create-account-create-account {
-      display: flex;
-      flex-direction: row;
-      gap: 5px;
-      align-items: center;
-      justify-content: center;
-
-      &-question {
-        color: var(--lf-secondary-font-color);
+        color: colors.$lf-secondary-gray;
       }
 
-      &-login {
-        color: var(--lf-primary-purple);
-        cursor: pointer;
+      .lf-create-account-form-input-wrapper {
+        width: 100%;
+      }
+
+      .lf-create-account-create-account {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+
+        &-question {
+          color: colors.$lf-secondary-gray;
+        }
+
+        &-login {
+          color: colors.$lf-primary-purple;
+          cursor: pointer;
+        }
       }
     }
   }

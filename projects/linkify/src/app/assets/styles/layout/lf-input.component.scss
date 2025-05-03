@@ -1,9 +1,12 @@
+@use './../variables/colors' as colors;
+@use './../variables/typography' as fonts;
+
 .lf-input-container {
   height: 1.8rem;
   gap: 5px;
-  font-family: var(--font-family-instrument-sans), serif;
+  font-family: fonts.$lf-instrument-sans-font-family, serif;
   border-radius: 8px;
-  border: 1px solid var(--lf-border-gray);
+  border: 1px solid colors.$lf-borders-gray;
   padding: 6px 10px;
   display: flex;
   align-items: center;
@@ -27,7 +30,7 @@
     justify-content: center;
     width: 25px;
     height: 25px;
-    color: var(--lf-secondary-font-color);
+    color: colors.$lf-secondary-gray;
 
     img {
       width: 17px;
@@ -38,7 +41,7 @@
   .lf-input {
     border: none;
     font-size: 14px;
-    color: var(--lf-primary-font-color);
+    color: colors.$lf-primary-gray;
     width: 100%;
     background-color: transparent;
 
@@ -47,24 +50,24 @@
     }
 
     &::placeholder {
-      color: var(--lf-border-gray);
+      color: colors.$lf-borders-gray;
     }
   }
 
   &--active {
-    box-shadow: 0 0 12px 0 var(--lf-purple-shadow);
-    border: 1px solid var(--lf-primary-purple);
+    box-shadow: 0 0 12px 0 colors.$lf-purple-shadow;
+    border: 1px solid colors.$lf-primary-purple;
   }
 
   &--error {
-    border: 1px solid var(--lf-primary-red);
+    border: 1px solid colors.$lf-primary-red;
 
     .lf-input {
-      color: var(--lf-primary-red);
+      color: colors.$lf-primary-red;
     }
 
     .lf-input-error-message {
-      color: var(--lf-primary-red);
+      color: colors.$lf-primary-red;
       font-size: 12px;
       width: max-content;
     }

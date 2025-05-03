@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, WritableSignal} from '@angular/core';
-import {LinkCardInterface} from '../../../interfaces/lf-link-card.interface';
-import {LinkUpdateService} from '../../../services/link-update.service';
-import {LfPlatformsList} from '../../../utils/lf-platforms-list.constant';
+import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
+import {LinkUpdateService} from '@services/link-update.service';
+import {LfPlatformsList} from '@utils/lf-platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
-import {ProfileUpdateService} from '../../../services/profile-update.service';
-import {LfProfileDataInterface} from '../../../interfaces/lf-profile-data.interface';
+import {ProfileUpdateService} from '@services/profile-update.service';
+import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
 
 @Component({
   selector: 'lf-profile-preview',

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {LfProfilePreviewComponent} from '../lf-profile-preview/lf-profile-preview.component';
 
 @Component({

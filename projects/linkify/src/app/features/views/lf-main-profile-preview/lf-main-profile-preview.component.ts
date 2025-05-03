@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {LfButtonComponent} from '../../../ui/lf-button/lf-button.component';
+import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
 import {Router} from '@angular/router';
 import {LfProfilePreviewComponent} from '../../preview/lf-profile-preview/lf-profile-preview.component';
-import {LfNavigationRoutes} from '../../../utils/lf-navigation-routes.enum';
+import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
 
 @Component({
   selector: 'lf-lf-main-profile-preview',

@@ -1,7 +1,9 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
 .lf-login-view-container {
   width: 100%;
   height: 100%;
-  background-color: var(--lf-background-light-gray);
+  background-color: colors.$lf-background-light-gray;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -22,7 +24,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 350px;
-    background-color: var(--lf-primary-white);
+    background-color: colors.$lf-primary-white;
     padding: 2rem;
     border-radius: 0.75rem;
     margin: 0 2rem;
@@ -35,7 +37,7 @@
       width: 100%;
 
       .lf-login-description {
-        color: var(--lf-secondary-font-color);
+        color: colors.$lf-secondary-gray;
       }
     }
 
@@ -43,7 +45,7 @@
       width: 100%;
 
       span {
-        color: var(--lf-secondary-font-color);
+        color: colors.$lf-secondary-gray;
       }
     }
 
@@ -55,11 +57,11 @@
       justify-content: center;
 
       &-question {
-        color: var(--lf-secondary-font-color);
+        color: colors.$lf-secondary-gray;
       }
 
       &-create {
-        color: var(--lf-primary-purple);
+        color: colors.$lf-primary-purple;
         cursor: pointer;
       }
     }

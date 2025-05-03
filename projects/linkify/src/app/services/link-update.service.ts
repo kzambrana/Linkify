@@ -12,9 +12,6 @@ export class LinkUpdateService {
   }
 
   public setSavedLinks(links: LinkCardInterface[]): void {
-    const validLinks = links.filter(link =>
-      link.platform?.trim() && link.link?.trim()
-    );
-    this._savedLinks.set(validLinks);
+    this._savedLinks.set([...links]);
   }
 }
