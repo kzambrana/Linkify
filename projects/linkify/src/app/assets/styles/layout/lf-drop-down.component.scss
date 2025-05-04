@@ -1,0 +1,62 @@
+@use './../variables/colors' as colors;
+@use './../variables/typography' as fonts;
+
+.lf-drop-down-container {
+  position: relative;
+  border: 1px solid colors.$lf-borders-gray;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: fonts.$lf-instrument-sans-font-family, serif;
+  cursor: pointer;
+  background: transparent;
+  height: 30px;
+
+  &--active {
+    box-shadow: 0 0 12px 0 colors.$lf-purple-shadow;
+    border: 1px solid colors.$lf-primary-purple;
+  }
+
+  .lf-drop-down-selected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+  }
+
+  .lf-drop-down-placeholder {
+    color: colors.$lf-borders-gray;
+  }
+
+  .lf-drop-down-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    border: 1px solid colors.$lf-borders-gray;
+    background: white;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    max-height: 150px;
+  }
+
+  .lf-drop-down-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: colors.$lf-background-light-gray;
+      color: colors.$lf-primary-purple;
+    }
+  }
+
+  .lf-drop-down-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

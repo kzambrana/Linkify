@@ -1,0 +1,27 @@
+<lf-links-header/>
+
+<section class="lf-main-links-customize-body">
+  <div class="lf-main-links-left-container">
+    <div class="lf-mobile-preview-borders">
+      <img class="lf-mobile-preview-inside-border"
+           src="images/cellphone-inside-border.svg"
+           alt="Mobile inside border"/>
+
+      <img class="lf-mobile-preview-outside-border"
+           src="images/cellphone-outside-border.svg"
+           alt="Mobile outside border"/>
+    </div>
+
+    <section class="lf-mobile-preview-profile">
+      <lf-profile-card/>
+    </section>
+  </div>
+
+  <div class="lf-main-links-right-container">
+    @if (selectedTab() === 'links') {
+      <lf-links-edition></lf-links-edition>
+    } @else {
+      <lf-profile-edition></lf-profile-edition>
+    }
+  </div>
+</section>

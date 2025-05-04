@@ -17,21 +17,3 @@ $lf-purple-shadow: #633cffa1;
 
 /* Border colors */
 $lf-borders-gray: #d9d9d9;
-
-/* Root injection*/
-:root {
-  --lf-primary-font-color: #{$lf-primary-gray};
-  --lf-primary-purple: #{$lf-primary-purple};
-  --lf-primary-red: #{$lf-primary-red};
-  --lf-primary-white: #{$lf-primary-white};
-
-  --lf-secondary-font-color: #{$lf-secondary-gray};
-  --lf-secondary-purple: #{$lf-secondary-purple};
-
-  --lf-border-gray: #{$lf-borders-gray};
-
-  --lf-purple-shadow: #{$lf-purple-shadow};
-
-  --lf-background-light-purple: #{$lf-background-light-purple};
-  --lf-background-light-gray: #{$lf-background-light-gray};
-}

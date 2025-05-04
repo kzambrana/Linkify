@@ -1,0 +1,41 @@
+<section class="lf-customize-links-content"
+         [style.height]="linksList().length > 0 ? 'calc(100% - 5.6rem)' : '100%'">
+  <div class="lf-customize-links-header">
+    <span class="lf-heading-m">Customize your links</span>
+
+    <span class="lf-body-m lf-description">
+      Add/edit/remove links below and then share all your profiles with the world!
+    </span>
+  </div>
+
+  <lf-button [primary]="false" buttonText="+ Add new link" (click)="addLinkCard()"/>
+
+  @if (linksList().length > 0) {
+    <div class="lf-manage-links-container" #linksContainer>
+      @for (link of linksList(); track link.id; ) {
+        <lf-link-card [cardNumber]="$index + 1"
+                      [dataLink]="link"
+                      [platformOptions]="LF_PLATFORMS_LIST"
+                      (updatedLinkEmitter)="updateLinkData($event)"
+                      (deletedCardEmitter)="deleteLinkCard($event)"/>
+      }
+    </div>
+  } @else {
+    <section class="lf-customize-links-placeholder">
+      <img class="lf-customize-links-placeholder-image" src="images/phone-placeholder.svg"
+           alt="Customize links placeholder"/>
+
+      <span class="lf-heading-m">Let’s get you started</span>
+
+      <span class="lf-body-m lf-description">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We’re here to help you share your profiles with everyone!</span>
+    </section>
+  }
+</section>
+
+@if (linksList().length > 0) {
+  <section class="lf-customize-links-footer">
+    <lf-button [primary]="true"
+               buttonText="Save"
+               (clickEmitter)="saveLinks()"/>
+  </section>
+}

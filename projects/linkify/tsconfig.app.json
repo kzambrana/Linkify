@@ -5,7 +5,11 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@styles/*": ["projects/linkify/src/app/assets/styles/*"]
+      "@styles/*": ["projects/linkify/src/app/assets/styles/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@ui/*": ["src/app/ui/*"],
+      "@services/*": ["src/app/services/*"],
+      "@interfaces/*": ["src/app/interfaces/*"]
     }
   },
   "files": ["src/main.ts"],

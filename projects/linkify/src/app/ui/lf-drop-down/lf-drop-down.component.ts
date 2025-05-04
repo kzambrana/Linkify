@@ -9,13 +9,12 @@ import {
   Renderer2,
   signal, ViewChild
 } from '@angular/core';
-import {LfDropDownOption} from '../../interfaces/lf-drop-down-option.interface';
+import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
 import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'lf-drop-down',
   templateUrl: './lf-drop-down.component.html',
-  styleUrl: './lf-drop-down.component.scss',
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true

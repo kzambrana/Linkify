@@ -1,0 +1,34 @@
+@use './../variables/colors' as colors;
+
+.lf-tab-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: colors.$lf-secondary-gray;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: colors.$lf-primary-purple;
+  }
+
+  span {
+    font-size: 15px;
+  }
+
+  &.active {
+    background-color: colors.$lf-background-light-purple;
+    color: colors.$lf-primary-purple;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

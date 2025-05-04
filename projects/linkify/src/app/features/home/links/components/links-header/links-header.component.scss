@@ -1,0 +1,41 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
+.lf-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: colors.$lf-primary-white;
+  padding: 0.5rem 1rem;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+  .lf-header-left,
+  .lf-header-center,
+  .lf-header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .lf-header-left {
+    gap: 0.5rem;
+
+    .lf-header-logo {
+      height: 30px;
+      width: auto;
+    }
+
+    .lf-header-app-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+
+  .lf-header-center {
+    gap: 1rem;
+  }
+
+  .lf-header-right {
+    font-size: 10px;
+  }
+}

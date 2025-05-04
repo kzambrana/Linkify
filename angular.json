@@ -37,6 +37,9 @@
               "projects/linkify/src/app/assets/styles/styles.scss",
               "projects/linkify/src/app/assets/icons/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/linkify/src"]
+            },
             "scripts": []
           },
           "configurations": {

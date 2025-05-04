@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 @Component({
   selector: 'lf-input',
   templateUrl: './lf-input.component.html',
-  styleUrl: './lf-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LfInputComponent {

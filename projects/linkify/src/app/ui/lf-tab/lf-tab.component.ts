@@ -3,7 +3,6 @@ import {Component, input, output} from '@angular/core';
 @Component({
   selector: 'lf-tab',
   templateUrl: './lf-tab.component.html',
-  styleUrls: ['./lf-tab.component.scss']
 })
 export class LfTabComponent {
   public text = input<string>('');
