@@ -1,0 +1,61 @@
+<section class="create-account">
+  <div class="create-account__header">
+    <img class="create-account__logo" src="images/linkify-logo.svg" alt="Linkify logo" />
+
+    <span class="create-account__title heading-m">Linkify</span>
+  </div>
+
+  <form class="create-account__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="create-account__form-header">
+      <span class="heading-m">Create account</span>
+
+      <span class="body-m create-account__description">Let’s get you started sharing your links!</span>
+    </div>
+
+    <div class="create-account__input-group">
+      <label class="body-s">Email address</label>
+
+      <lf-input type="email"
+                placeholder="e.g. alex@email.com"
+                iconPath="lf-icon-envelope"
+                [errorMessage]="getErrorMessage('email')"
+                (inputValueChange)="onInputValueChange('email', $event)" />
+    </div>
+
+    <div class="create-account__input-group">
+      <label class="body-s">Create password</label>
+
+      <lf-input type="password"
+                placeholder="Enter your password"
+                iconPath="lf-icon-lock"
+                [errorMessage]="getErrorMessage('password')"
+                (inputValueChange)="onInputValueChange('password', $event)" />
+    </div>
+
+    <div class="create-account__input-group">
+      <label class="body-s">Confirm password</label>
+
+      <lf-input type="password"
+                placeholder="Confirm your password"
+                iconPath="lf-icon-lock"
+                [errorMessage]="getErrorMessage('confirmPassword')"
+                (inputValueChange)="onInputValueChange('confirmPassword', $event)" />
+    </div>
+
+    <span class="body-s create-account__password-hint">
+      Password must contain at least 8 characters
+    </span>
+
+    <lf-button type="submit"
+               buttonText="Create new account"
+               [primary]="true" />
+
+    <div class="create-account__footer body-m">
+      <span class="create-account__footer-text">Already have an account?</span>
+
+      <button class="create-account__footer-button" (click)="goToLoginView()">
+        <span>Login</span>
+      </button>
+    </div>
+  </form>
+</section>

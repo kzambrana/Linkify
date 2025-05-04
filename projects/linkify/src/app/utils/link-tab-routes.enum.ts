@@ -1,4 +1,4 @@
-export enum LfLinkTabRoutes {
+export enum LinkTabRoutes {
   LINKS = 'links',
   PROFILE = 'profile'
 }

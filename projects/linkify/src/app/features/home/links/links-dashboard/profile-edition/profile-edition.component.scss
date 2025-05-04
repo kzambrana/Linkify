@@ -4,25 +4,25 @@
   display: flex;
   flex-direction: column;
   height: calc(100% - 40px);
-  background-color: colors.$lf-primary-white;
+  background-color: colors.$primary-white;
   border-radius: 12px;
   justify-content: space-between;
   position: relative;
   padding: 20px;
 }
 
-.lf-profile-edition-header {
+.profile-edition__header {
   display: flex;
   flex-direction: column;
   gap: 10px;
   height: 7rem;
 
-  .lf-description {
-    color: colors.$lf-secondary-gray;
+  .profile-edition__description {
+    color: colors.$secondary-gray;
   }
 }
 
-.lf-profile-edition-container {
+.profile-edition__container {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -33,35 +33,35 @@
   width: calc(100% - 50px);
   overflow: auto;
 
-  .lf-profile-edition-upload-section {
+  .profile-edition__upload {
     display: flex;
     gap: 2rem;
     align-items: center;
-    background-color: colors.$lf-background-light-gray;
+    background-color: colors.$background-light-gray;
     border-radius: 8px;
     padding: 10px 20px;
 
-    .lf-profile-edition-upload-label {
+    .profile-edition__upload-label {
       width: 30%;
-      color: colors.$lf-secondary-gray;
+      color: colors.$secondary-gray;
     }
 
-    .lf-profile-edition-upload-box {
+    .profile-edition__upload-box {
       display: flex;
       align-items: center;
       gap: 1rem;
       width: 70%;
 
-      .lf-profile-edition-upload-image {
+      .profile-edition__upload-image {
         width: 160px;
         height: 160px;
-        background-color: colors.$lf-background-light-purple;
+        background-color: colors.$background-light-purple;
         border-radius: 12px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: colors.$lf-primary-purple;
+        color: colors.$primary-purple;
         font-weight: 600;
         cursor: pointer;
         text-align: center;
@@ -71,14 +71,14 @@
           height: 100%;
         }
 
-        .lf-profile-edition-upload-preview {
+        .profile-edition__upload-preview {
           width: 100%;
           height: 100%;
           object-fit: cover;
           border-radius: 8px;
         }
 
-        .lf-profile-edition-upload-icon {
+        .profile-edition__upload-icon {
           width: 32px;
           height: 32px;
           background-size: contain;
@@ -86,14 +86,14 @@
           margin-bottom: 8px;
         }
 
-        .lf-profile-edition-upload-trigger {
+        .profile-edition__upload-trigger {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 7px;
           flex-direction: column;
 
-          .lf-icon-image-preview {
+          .icon-image-preview {
             font-size: 25px;
           }
 
@@ -101,53 +101,53 @@
             cursor: pointer;
           }
 
-          .lf-upload-label {
-            color: colors.$lf-secondary-gray;
+          .upload-label {
+            color: colors.$secondary-gray;
           }
         }
       }
 
-      .lf-profile-edition-upload-hint {
+      .profile-edition__upload-hint {
         font-size: 0.875rem;
-        color: colors.$lf-secondary-gray;
+        color: colors.$secondary-gray;
       }
     }
   }
 
-  .lf-profile-edition-form {
+  .profile-edition__form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: colors.$lf-background-light-gray;
+    background-color: colors.$background-light-gray;
     border-radius: 8px;
     padding: 10px 20px;
 
-    .lf-profile-edition-form-group {
+    .profile-edition__form-group {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
       span {
-        color: colors.$lf-secondary-gray;
+        color: colors.$secondary-gray;
       }
 
       lf-input {
         width: 70%;
-        background-color: colors.$lf-primary-white;
+        background-color: colors.$primary-white;
       }
     }
   }
 }
 
-.lf-profile-edition-footer {
+.profile-edition__footer {
   height: 4rem;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-top: 1px solid colors.$lf-borders-gray;
-  background-color: colors.$lf-primary-white;
+  border-top: 1px solid colors.$borders-gray;
+  background-color: colors.$primary-white;
   border-radius: 0 0 12px 12px;
   position: absolute;
   bottom: 0;
@@ -158,4 +158,3 @@
     width: 80px;
   }
 }
-

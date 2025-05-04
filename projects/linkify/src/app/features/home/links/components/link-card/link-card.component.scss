@@ -3,65 +3,65 @@
 :host {
   display: flex;
   flex-direction: column;
-  background-color: colors.$lf-background-light-gray;
+  background-color: colors.$background-light-gray;
   padding: 15px;
   border-radius: 12px;
   gap: 12px;
 }
 
-.lf-input-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  color: colors.$lf-secondary-gray;
-
-  .lf-input-remove-button {
-    color: colors.$lf-secondary-gray;
-    cursor: pointer;
+.link-form {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: colors.$secondary-gray;
   }
 
-  .lf-input-container-left {
+  &__header-left {
     display: flex;
     gap: 8px;
-    justify-content: center;
     align-items: center;
 
     .lf-icon-menu {
       font-size: 8px;
       cursor: pointer;
     }
-
-    .lf-link-number {
-      font-weight: 900;
-      cursor: pointer;
-    }
   }
-}
 
-.lf-link-input-items {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  gap: 10px;
+  &__link-number {
+    font-weight: 900;
+    cursor: pointer;
+  }
 
-  .lf-input-link, .lf-input-platform {
-    width: 100%;
+  &__header-right {
     display: flex;
-    gap: 5px;
+    align-items: center;
+  }
+
+  &__remove-button {
+    color: colors.$secondary-gray;
+    cursor: pointer;
+  }
+
+  &__inputs {
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 
-    lf-input {
-      width: 100%;
-      background-color: colors.$lf-primary-white;
-      border-radius: 8px;
-    }
+  &__platform,
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
 
+    lf-input,
     lf-drop-down {
-      background-color: colors.$lf-primary-white;
+      background-color: colors.$primary-white;
       border-radius: 8px;
+      width: 100%;
     }
   }
 }

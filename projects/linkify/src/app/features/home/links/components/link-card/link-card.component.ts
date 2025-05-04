@@ -1,23 +1,23 @@
 import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {LfInputComponent} from '@ui/lf-input/lf-input.component';
-import {LfDropdownComponent} from '@ui/lf-drop-down/lf-drop-down.component';
-import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
-import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
+import {InputComponent} from '@ui/input/input.component';
+import {DropdownComponent} from '@ui/drop-down/dropdown.component';
+import {DropDownOption} from '@interfaces/drop-down-option.interface';
+import {LinkCardInterface} from '@interfaces/link-card.interface';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'lf-link-card',
   imports: [
-    LfInputComponent,
-    LfDropdownComponent
+    InputComponent,
+    DropdownComponent
   ],
   templateUrl: './link-card.component.html',
   styleUrl: './link-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinkCardComponent {
-  public platformOptions = input<LfDropDownOption[]>([]);
+  public platformOptions = input<DropDownOption[]>([]);
   public cardNumber = input<number>(0);
   public dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});
   public deletedCardEmitter = output<string>();
@@ -53,7 +53,7 @@ export class LinkCardComponent {
       });
   }
 
-  public onPlatformSelect(option: LfDropDownOption): void {
+  public onPlatformSelect(option: DropDownOption): void {
     if (option.value === '') return;
     const updated = {...this.dataLink(), platform: option.value};
     this.updatedLinkEmitter.emit(updated);
@@ -77,7 +77,7 @@ export class LinkCardComponent {
 
     return '';
   }
-  public getSelectedPlatformOption(): LfDropDownOption {
+  public getSelectedPlatformOption(): DropDownOption {
     const platform = this.dataLink().platform;
     const selectedOption = this.platformOptions().find(opt => opt.value === platform);
     return selectedOption ?? {

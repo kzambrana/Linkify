@@ -1,4 +1,4 @@
-export enum LfNavigationRoutes {
+export enum NavigationRoutes {
   CUSTOMIZE_LINKS = 'customize-links',
   AUTH = 'auth',
   LOGIN = 'login',

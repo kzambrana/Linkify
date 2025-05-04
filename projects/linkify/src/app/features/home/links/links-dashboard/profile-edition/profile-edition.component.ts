@@ -7,16 +7,16 @@ import {
   WritableSignal
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
-import {LfInputComponent} from '@ui/lf-input/lf-input.component';
+import {ButtonComponent} from '@ui/button/button.component';
+import {InputComponent} from '@ui/input/input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ProfileUpdateService} from '@services/profile-update.service';
-import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
+import {ProfileDataInterface} from '@interfaces/profile-data.interface';
 
 @Component({
   selector: 'lf-profile-edition',
   standalone: true,
-  imports: [CommonModule, LfButtonComponent, LfInputComponent, ReactiveFormsModule],
+  imports: [CommonModule, ButtonComponent, InputComponent, ReactiveFormsModule],
   templateUrl: './profile-edition.component.html',
   styleUrls: ['./profile-edition.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,7 +29,7 @@ export class ProfileEditionComponent {
   public email: string = '';
   public imagePreview: string | null = null;
   public form: FormGroup;
-  public profileData: WritableSignal<LfProfileDataInterface>;
+  public profileData: WritableSignal<ProfileDataInterface>;
 
   private readonly _maxFileSize = 1024 * 1024;
   private readonly _maxWidth = 1024;

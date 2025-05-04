@@ -1,36 +1,36 @@
 @use './../variables/colors' as colors;
 @use './../variables/typography' as fonts;
 
-.lf-input-container {
+.input {
   height: 1.8rem;
   gap: 5px;
-  font-family: fonts.$lf-instrument-sans-font-family, serif;
+  font-family: fonts.$instrument-sans-font-family, serif;
   border-radius: 8px;
-  border: 1px solid colors.$lf-borders-gray;
+  border: 1px solid colors.$borders-gray;
   padding: 6px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .lf-input-left-container {
+  &__left {
     display: flex;
     align-items: center;
     width: 100%;
   }
 
-  .lf-input-right-container {
+  &__right {
     display: flex;
     align-items: center;
     justify-content: right;
   }
 
-  .lf-input-icon {
-    align-items: center;
+  &__icon {
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 25px;
     height: 25px;
-    color: colors.$lf-secondary-gray;
+    color: colors.$secondary-gray;
 
     img {
       width: 17px;
@@ -38,10 +38,10 @@
     }
   }
 
-  .lf-input {
+  &__field {
     border: none;
     font-size: 14px;
-    color: colors.$lf-primary-gray;
+    color: colors.$primary-gray;
     width: 100%;
     background-color: transparent;
 
@@ -50,26 +50,29 @@
     }
 
     &::placeholder {
-      color: colors.$lf-borders-gray;
+      color: colors.$borders-gray;
     }
+  }
+
+  &__error-message {
+    font-size: 12px;
+    width: max-content;
   }
 
   &--active {
-    box-shadow: 0 0 12px 0 colors.$lf-purple-shadow;
-    border: 1px solid colors.$lf-primary-purple;
+    box-shadow: 0 0 12px 0 colors.$purple-shadow;
+    border: 1px solid colors.$primary-purple;
   }
 
   &--error {
-    border: 1px solid colors.$lf-primary-red;
+    border: 1px solid colors.$primary-red;
 
-    .lf-input {
-      color: colors.$lf-primary-red;
+    .input__field {
+      color: colors.$primary-red;
     }
 
-    .lf-input-error-message {
-      color: colors.$lf-primary-red;
-      font-size: 12px;
-      width: max-content;
+    .input__error-message {
+      color: colors.$primary-red;
     }
   }
 }

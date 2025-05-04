@@ -1,13 +1,13 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
+import {ButtonComponent} from '@ui/button/button.component';
 import {Router} from '@angular/router';
-import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
+import {NavigationRoutes} from '@utils/navigation-routes.enum';
 import {ProfileCardComponent} from '../../components/profile-card/profile-card.component';
 
 @Component({
   selector: 'lf-profile-preview',
   imports: [
-    LfButtonComponent,
+    ButtonComponent,
     ProfileCardComponent
   ],
   templateUrl: './profile-preview.component.html',
@@ -20,7 +20,7 @@ export default class ProfilePreviewComponent {
   }
 
   public navigateToEditor(): void {
-    this._router.navigate([LfNavigationRoutes.CUSTOMIZE_LINKS]);
+    this._router.navigate([NavigationRoutes.CUSTOMIZE_LINKS]);
   }
 
   public shareLink(): void {

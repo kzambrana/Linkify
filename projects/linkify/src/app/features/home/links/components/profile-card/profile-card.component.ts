@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, WritableSignal} from '@angular/core';
-import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
+import {LinkCardInterface} from '@interfaces/link-card.interface';
 import {LinkUpdateService} from '@services/link-update.service';
-import {LfPlatformsList} from '@utils/lf-platforms-list.constant';
+import {PlatformsList} from '@utils/platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
 import {ProfileUpdateService} from '@services/profile-update.service';
-import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
+import {ProfileDataInterface} from '@interfaces/profile-data.interface';
 
 @Component({
   selector: 'lf-profile-card',
@@ -17,7 +17,7 @@ import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
 })
 export class ProfileCardComponent {
   public savedLinks: LinkCardInterface[] = [];
-  public profileData: WritableSignal<LfProfileDataInterface>;
+  public profileData: WritableSignal<ProfileDataInterface>;
 
   constructor(private _linkUpdateService: LinkUpdateService,
               private _profileUpdateService: ProfileUpdateService,
@@ -40,7 +40,7 @@ export class ProfileCardComponent {
 
   private _mapSavedLinks(links: LinkCardInterface[]): void {
     this.savedLinks = links.map(link => {
-      const platformData = LfPlatformsList.find(platform => platform.value === link.platform);
+      const platformData = PlatformsList.find(platform => platform.value === link.platform);
       return {
         ...link,
         iconPath: platformData?.iconPath || '',

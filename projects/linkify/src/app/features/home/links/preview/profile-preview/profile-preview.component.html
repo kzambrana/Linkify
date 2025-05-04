@@ -1,17 +1,18 @@
-<div class="lf-main-profile-preview-top-background"></div>
+<div class="profile-preview__top-background"></div>
 
-<section class="lf-main-profile-preview-header">
-  <lf-button buttonText="Back to Editor"
-             (clickEmitter)="navigateToEditor()"
-             [primary]="true"/>
+<section class="profile-preview__header">
+  <lf-button class="profile-preview__button--back"
+             buttonText="Back to Editor"
+             (clickEmitter)="navigateToEditor()" [primary]="true"/>
 
-  <lf-button buttonText="Share Link"
+  <lf-button class="profile-preview__button--share"
+             buttonText="Share Link"
              (clickEmitter)="shareLink()"
              [primary]="false"/>
 </section>
 
-<section class="lf-main-profile-preview-body">
-  <div class="lf-profile-preview-container">
+<section class="profile-preview__body">
+  <div class="profile-preview__profile-container">
     <lf-profile-card/>
   </div>
 </section>

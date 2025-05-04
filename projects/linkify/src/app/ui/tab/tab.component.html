@@ -1,0 +1,8 @@
+<button class="tab"
+        [class.tab--active]="active()"
+        (click)="handleClick()">
+  @if (!!iconSrc) {
+    <span class="tab__icon" [class]="iconSrc()"></span>
+  }
+  <span class="tab__text heading-s">{{ text() }}</span>
+</button>

@@ -2,10 +2,10 @@ import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'lf-input',
-  templateUrl: './lf-input.component.html',
+  templateUrl: './input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfInputComponent {
+export class InputComponent {
   public type = input<string>('');
   public placeholder = input<string>('');
   public iconPath = input<string>('');

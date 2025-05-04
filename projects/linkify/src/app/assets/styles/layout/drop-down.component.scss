@@ -1,39 +1,39 @@
 @use './../variables/colors' as colors;
 @use './../variables/typography' as fonts;
 
-.lf-drop-down-container {
+.drop-down {
   position: relative;
-  border: 1px solid colors.$lf-borders-gray;
+  border: 1px solid colors.$borders-gray;
   border-radius: 8px;
   padding: 6px 10px;
-  font-family: fonts.$lf-instrument-sans-font-family, serif;
+  font-family: fonts.$instrument-sans-font-family, serif;
   cursor: pointer;
   background: transparent;
   height: 30px;
 
   &--active {
-    box-shadow: 0 0 12px 0 colors.$lf-purple-shadow;
-    border: 1px solid colors.$lf-primary-purple;
+    box-shadow: 0 0 12px 0 colors.$purple-shadow;
+    border: 1px solid colors.$primary-purple;
   }
 
-  .lf-drop-down-selected {
+  &__selected {
     display: flex;
     align-items: center;
     gap: 8px;
     height: 100%;
   }
 
-  .lf-drop-down-placeholder {
-    color: colors.$lf-borders-gray;
+  &__placeholder {
+    color: colors.$borders-gray;
   }
 
-  .lf-drop-down-options {
+  &__options {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     margin-top: 5px;
-    border: 1px solid colors.$lf-borders-gray;
+    border: 1px solid colors.$borders-gray;
     background: white;
     border-radius: 8px;
     z-index: 10;
@@ -42,7 +42,7 @@
     max-height: 150px;
   }
 
-  .lf-drop-down-option {
+  &__option {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -50,12 +50,12 @@
     cursor: pointer;
 
     &:hover {
-      background: colors.$lf-background-light-gray;
-      color: colors.$lf-primary-purple;
+      background: colors.$background-light-gray;
+      color: colors.$primary-purple;
     }
   }
 
-  .lf-drop-down-icon {
+  &__icon {
     width: 20px;
     height: 20px;
   }

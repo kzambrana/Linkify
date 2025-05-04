@@ -2,8 +2,8 @@
 @use './variables/colors';
 @use './variables/typography';
 @use './variables/reset';
-@use './layout/lf-button.component';
-@use './layout/lf-drop-down.component';
-@use './layout/lf-input.component';
-@use './layout/lf-tab.component';
+@use './layout/button.component';
+@use './layout/drop-down.component';
+@use './layout/input.component';
+@use './layout/tab';
 @use './fonts/font-faces';
