@@ -17,11 +17,11 @@ import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
   selector: 'lf-profile-edition',
   standalone: true,
   imports: [CommonModule, LfButtonComponent, LfInputComponent, ReactiveFormsModule],
-  templateUrl: './lf-profile-edition.component.html',
-  styleUrls: ['./lf-profile-edition.component.scss'],
+  templateUrl: './profile-edition.component.html',
+  styleUrls: ['./profile-edition.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfProfileEditionComponent {
+export class ProfileEditionComponent {
   @ViewChild('fileInput') fileInputRef!: ElementRef<HTMLInputElement>;
 
   public firstName: string = '';

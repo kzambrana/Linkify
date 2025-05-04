@@ -12,11 +12,11 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
     LfInputComponent,
     LfDropdownComponent
   ],
-  templateUrl: './lf-link-card.component.html',
-  styleUrl: './lf-link-card.component.scss',
+  templateUrl: './link-card.component.html',
+  styleUrl: './link-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfLinkCardComponent {
+export class LinkCardComponent {
   public platformOptions = input<LfDropDownOption[]>([]);
   public cardNumber = input<number>(0);
   public dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});

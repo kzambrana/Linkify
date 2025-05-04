@@ -1,23 +1,23 @@
 import {ChangeDetectionStrategy, Component, effect, ElementRef, output, ViewChild, WritableSignal} from '@angular/core';
 import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
-import {LfLinkCardComponent} from '../lf-link-card/lf-link-card.component';
 import {LfPlatformsList} from '@utils/lf-platforms-list.constant';
 import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
 import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
 import {LinkUpdateService} from '@services/link-update.service';
 import {timer} from 'rxjs';
+import {LinkCardComponent} from '../../components/link-card/link-card.component';
 
 @Component({
-  selector: 'lf-customize-links',
-  templateUrl: './lf-customize-links.component.html',
-  styleUrl: './lf-customize-links.component.scss',
+  selector: 'lf-links-edition',
+  templateUrl: './links-edition.component.html',
+  styleUrl: './links-edition.component.scss',
   imports: [
     LfButtonComponent,
-    LfLinkCardComponent
+    LinkCardComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class LfCustomizeLinksComponent {
+export default class LinksEditionComponent {
   @ViewChild('linksContainer') public linksContainerRef!: ElementRef<HTMLDivElement>;
 
   public linksList:  WritableSignal<LinkCardInterface[]>

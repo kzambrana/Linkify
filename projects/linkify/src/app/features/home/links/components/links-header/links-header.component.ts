@@ -7,16 +7,16 @@ import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
 import {LfLinkTabRoutes} from '@utils/lf-link-tab-routes.enum';
 
 @Component({
-  selector: 'lf-header',
-  templateUrl: './lf-header.component.html',
-  styleUrl: './lf-header.component.scss',
+  selector: 'lf-links-header',
+  templateUrl: './links-header.component.html',
+  styleUrl: './links-header.component.scss',
   imports: [
     LfButtonComponent,
     LfTabComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfHeaderComponent {
+export class LinksHeader {
   public selectedTab: WritableSignal<string>;
   public readonly LfLinkTabRoutes = LfLinkTabRoutes;
 

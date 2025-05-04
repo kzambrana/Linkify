@@ -43,10 +43,12 @@
 
   .lf-profile-preview-container {
     width: 18%;
-    background-color: colors.$lf-primary-white;
+    background-color: #ffffff;
     height: 60%;
+    max-height: 40rem;
     border-radius: 24px;
     padding: 2.5rem;
-    max-width: 210px;
+    max-width: 18rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }

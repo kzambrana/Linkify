@@ -7,15 +7,15 @@ import {ProfileUpdateService} from '@services/profile-update.service';
 import {LfProfileDataInterface} from '@interfaces/lf-profile-data.interface';
 
 @Component({
-  selector: 'lf-profile-preview',
+  selector: 'lf-profile-card',
   imports: [
     TitleCasePipe
   ],
-  templateUrl: './lf-profile-preview.component.html',
-  styleUrl: './lf-profile-preview.component.scss',
+  templateUrl: './profile-card.component.html',
+  styleUrl: './profile-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfProfilePreviewComponent {
+export class ProfileCardComponent {
   public savedLinks: LinkCardInterface[] = [];
   public profileData: WritableSignal<LfProfileDataInterface>;
 

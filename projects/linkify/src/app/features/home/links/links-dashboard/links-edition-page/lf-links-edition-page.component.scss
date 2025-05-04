@@ -1,0 +1,108 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
+:host {
+  display: flex;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  flex-direction: column;
+  background-color: colors.$lf-background-light-gray;
+  padding: 20px;
+  gap: 20px;
+}
+
+.lf-main-links-customize-body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+
+  .lf-main-links-left-container {
+    width: 40%;
+    display: flex;
+    padding: 20px 25px;
+    background-color: colors.$lf-primary-white;
+    gap: 45px;
+    flex-direction: column;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .lf-mobile-preview-borders {
+      position: absolute;
+      height: calc(100% - 6rem);
+      z-index: 2;
+      width: calc(100% - 6rem);
+
+      .lf-mobile-preview-inside-border, .lf-mobile-preview-outside-border {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .lf-mobile-preview-inside-border{
+        padding: 10px 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 20px);
+      }
+    }
+
+    .lf-mobile-preview-profile {
+      display: flex;
+      justify-content: center;
+      z-index: 3;
+      width: calc(90% - 5rem);
+      height: calc(100% - 10rem);
+      padding: 56px 30px 30px 30px;
+      gap: 10px;
+    }
+  }
+
+  .lf-main-links-right-container {
+    width: 60%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lf-main-links-customize-body {
+    .lf-main-links-left-container {
+      .lf-mobile-preview-profile {
+        width: calc(70% - 10rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 1366px) {
+  .lf-main-links-customize-body {
+    .lf-main-links-left-container {
+      .lf-mobile-preview-profile {
+        width: calc(60% - 10rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 2520px) {
+  .lf-main-links-customize-body {
+    .lf-main-links-left-container {
+      .lf-mobile-preview-profile {
+        width: calc(50% - 10rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 2920px) {
+  .lf-main-links-customize-body {
+    .lf-main-links-left-container {
+      .lf-mobile-preview-profile {
+        width: calc(45% - 10rem);
+      }
+    }
+  }
+}
+
+
