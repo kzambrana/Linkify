@@ -1,5 +1,5 @@
 import {Injectable, signal, WritableSignal} from '@angular/core';
-import {LinkCardInterface} from '../interfaces/lf-link-card.interface';
+import {LinkCardInterface} from '@interfaces/link-card.interface';
 
 @Injectable({
   providedIn: 'root'

@@ -2,10 +2,10 @@ import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'lf-button',
-  templateUrl: './lf-button.component.html',
+  templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LfButtonComponent {
+export class ButtonComponent {
   public buttonText = input<string>('');
   public disabled = input<boolean>(false);
   public primary = input<boolean>(false);

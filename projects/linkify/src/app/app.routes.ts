@@ -1,24 +1,24 @@
 import {Routes} from '@angular/router';
-import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
+import {NavigationRoutes} from '@utils/navigation-routes.enum';
 
 export const routes: Routes = [
   {
-    path: '', redirectTo: `${LfNavigationRoutes.AUTH}/${LfNavigationRoutes.LOGIN}`, pathMatch: 'full'
+    path: '', redirectTo: `${NavigationRoutes.AUTH}/${NavigationRoutes.LOGIN}`, pathMatch: 'full'
   },
   {
-    path: `${LfNavigationRoutes.AUTH}/${LfNavigationRoutes.LOGIN}`,
-    loadComponent: () => import('./features/users/auth/lf-login-view/lf-login-view.component')
+    path: `${NavigationRoutes.AUTH}/${NavigationRoutes.LOGIN}`,
+    loadComponent: () => import('./features/users/auth/login-view/login-view.component')
   },
   {
-    path: `${LfNavigationRoutes.AUTH}/${LfNavigationRoutes.CREATE_ACCOUNT}`,
-    loadComponent: () => import('./features/users/auth/lf-create-account-view/lf-create-account-view.component')
+    path: `${NavigationRoutes.AUTH}/${NavigationRoutes.CREATE_ACCOUNT}`,
+    loadComponent: () => import('./features/users/auth/create-account-view/create-account-view.component')
   },
   {
-    path: LfNavigationRoutes.CUSTOMIZE_LINKS,
+    path: NavigationRoutes.CUSTOMIZE_LINKS,
     loadComponent: () => import('./features/home/links/links-dashboard/links-edition-page/lf-links-edition-page.component')
   },
   {
-    path: LfNavigationRoutes.PROFILE_PREVIEW,
+    path: NavigationRoutes.PROFILE_PREVIEW,
     loadComponent: () => import('./features/home/links/preview/profile-preview/profile-preview.component')
   }
 ];

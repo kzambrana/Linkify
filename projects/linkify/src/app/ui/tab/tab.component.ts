@@ -2,9 +2,9 @@ import {Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'lf-tab',
-  templateUrl: './lf-tab.component.html',
+  templateUrl: './tab.component.html',
 })
-export class LfTabComponent {
+export class TabComponent {
   public text = input<string>('');
   public iconSrc = input<string>('');
   public active = input<boolean>(false);

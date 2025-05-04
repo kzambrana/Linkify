@@ -1,4 +1,4 @@
-export interface LfProfileDataInterface {
+export interface ProfileDataInterface {
   firstName: string;
   lastName: string;
   email: string;

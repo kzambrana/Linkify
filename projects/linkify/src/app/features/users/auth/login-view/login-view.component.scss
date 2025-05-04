@@ -1,16 +1,16 @@
 @use 'app/assets/styles/variables/colors' as colors;
 
-.lf-login-view-container {
+.login {
   width: 100%;
   height: 100%;
-  background-color: colors.$lf-background-light-gray;
+  background-color: colors.$background-light-gray;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   align-items: center;
   justify-content: center;
 
-  .lf-login-view-title-container {
+  .login__header {
     display: flex;
     gap: 12px;
     flex-direction: row;
@@ -18,50 +18,50 @@
     justify-content: center;
   }
 
-  .lf-login-view-form {
+  .login__form {
     display: flex;
     gap: 1.6rem;
     flex-direction: column;
     width: 100%;
     max-width: 350px;
-    background-color: colors.$lf-primary-white;
+    background-color: colors.$primary-white;
     padding: 2rem;
     border-radius: 0.75rem;
     margin: 0 2rem;
 
-    &-header{
+    &__header{
       display: flex;
       gap: 5px;
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
 
-      .lf-login-description {
-        color: colors.$lf-secondary-gray;
+      .login__description {
+        color: colors.$secondary-gray;
       }
     }
 
-    .lf-login-view-form-input-wrapper {
+    &__input-wrapper {
       width: 100%;
 
-      span {
-        color: colors.$lf-secondary-gray;
+      label {
+        color: colors.$secondary-gray;
       }
     }
 
-    .lf-login-view-create-account {
+    &__footer {
       display: flex;
       flex-direction: row;
       gap: 5px;
       align-items: center;
       justify-content: center;
 
-      &-question {
-        color: colors.$lf-secondary-gray;
+      .login__question {
+        color: colors.$secondary-gray;
       }
 
-      &-create {
-        color: colors.$lf-primary-purple;
+      .login__button {
+        color: colors.$primary-purple;
         cursor: pointer;
       }
     }

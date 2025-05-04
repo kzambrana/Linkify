@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, effect, ElementRef, output, ViewChild, WritableSignal} from '@angular/core';
-import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
-import {LfPlatformsList} from '@utils/lf-platforms-list.constant';
-import {LfDropDownOption} from '@interfaces/lf-drop-down-option.interface';
-import {LinkCardInterface} from '@interfaces/lf-link-card.interface';
+import {ButtonComponent} from '@ui/button/button.component';
+import {PlatformsList} from '@utils/platforms-list.constant';
+import {DropDownOption} from '@interfaces/drop-down-option.interface';
+import {LinkCardInterface} from '@interfaces/link-card.interface';
 import {LinkUpdateService} from '@services/link-update.service';
 import {timer} from 'rxjs';
 import {LinkCardComponent} from '../../components/link-card/link-card.component';
@@ -12,7 +12,7 @@ import {LinkCardComponent} from '../../components/link-card/link-card.component'
   templateUrl: './links-edition.component.html',
   styleUrl: './links-edition.component.scss',
   imports: [
-    LfButtonComponent,
+    ButtonComponent,
     LinkCardComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -23,7 +23,7 @@ export default class LinksEditionComponent {
   public linksList:  WritableSignal<LinkCardInterface[]>
   public emptyListEmitter = output<boolean>();
 
-  readonly LF_PLATFORMS_LIST: LfDropDownOption[] = LfPlatformsList;
+  readonly LF_PLATFORMS_LIST: DropDownOption[] = PlatformsList;
 
   constructor(private _linkUpdateService: LinkUpdateService) {
     this.linksList = this._linkUpdateService.getSavedLinks();

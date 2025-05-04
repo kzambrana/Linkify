@@ -1,44 +1,58 @@
 @use 'app/assets/styles/variables/colors' as colors;
+@use 'app/assets/styles/variables/typography' as fonts;
 
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: colors.$lf-primary-white;
+  background-color: colors.$primary-white;
   border-radius: 12px;
-  justify-content: space-between;
-  position: relative;
 }
 
-.lf-customize-links-content {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px 25px 0;
-  width: calc(100% - 50px);
+.customize-links {
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 25px 0;
+    overflow-y: auto;
+  }
 
-  .lf-customize-links-header {
+  &__header {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    .lf-description {
-      color: colors.$lf-secondary-gray;
+    &-description {
+      color: colors.$secondary-gray;
     }
   }
 
-  lf-button {
+  &__add-button {
     flex-shrink: 0;
   }
 
-  .lf-manage-links-container {
-    overflow-y: auto;
+  &__list {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    height: 100%;
+    overflow-y: auto;
     padding: 10px 0;
+    font-family: fonts.$instrument-sans-font-family;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: colors.$secondary-gray;
+      border-radius: 6px;
+    }
+
+    &:hover::-webkit-scrollbar {
+      display: block;
+    }
 
     lf-link-card {
       opacity: 0;
@@ -47,41 +61,38 @@
     }
   }
 
-  .lf-customize-links-placeholder {
+  &__placeholder {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 1rem 5rem;
-    height: 100%;
+    flex-grow: 1;
+    text-align: center;
 
     &-image {
-      height: 40%;
+      max-height: 200px;
+      width: auto;
     }
 
-    .lf-description {
-      color: colors.$lf-secondary-gray;
-      text-align: center;
+    &-description {
+      color: colors.$secondary-gray;
+    }
+  }
+
+  &__footer {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid colors.$borders-gray;
+    background-color: colors.$primary-white;
+    border-radius: 0 0 12px 12px;
+    padding: 0 25px;
+
+    &-button {
+      width: 80px;
     }
   }
 }
-
-.lf-customize-links-footer {
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  border-top: 1px solid colors.$lf-borders-gray;
-  background-color: colors.$lf-primary-white;
-  border-radius: 0 0 12px 12px;
-  position: absolute;
-  bottom: 0;
-  width: calc(100% - 50px);
-  padding: 0 25px;
-
-  lf-button {
-    width: 80px;
-  }
-}
-

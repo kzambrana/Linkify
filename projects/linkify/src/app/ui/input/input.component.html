@@ -1,0 +1,26 @@
+<div class="input"
+     [class.input--active]="isActive"
+     [class.input--error]="!!errorMessage() && !isActive">
+  <div class="input__left">
+    @if (!!iconPath()) {
+      <div class="input__icon">
+        <span [class]="iconPath()"></span>
+      </div>
+    }
+    <input class="input__field"
+           [type]="type()"
+           [placeholder]="placeholder()"
+           (focus)="onFocus()"
+           (blur)="onBlur()"
+           [value]="value()"
+           (input)="onInputChange($event)" />
+  </div>
+
+  @if (!!errorMessage() && !isActive) {
+    <div class="input__right">
+      <span class="input__error-message">
+        {{ errorMessage() }}
+      </span>
+    </div>
+  }
+</div>

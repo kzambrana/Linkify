@@ -1,6 +1,6 @@
-import {LfDropDownOption} from '../interfaces/lf-drop-down-option.interface';
+import {DropDownOption} from '@interfaces/drop-down-option.interface';
 
-export const LfPlatformsList: LfDropDownOption[] = [
+export const PlatformsList: DropDownOption[] = [
   {label: 'GitHub', value: 'github', iconPath: 'lf-icon-github', color: '#1A1A1A'},
   {label: 'Frontend Mentor', value: 'frontend-mentor', iconPath: 'lf-icon-fe-mentor', color: '#302267'},
   {label: 'Twitter', value: 'twitter', iconPath: 'lf-icon-twitter', color: '#43b7e9'},

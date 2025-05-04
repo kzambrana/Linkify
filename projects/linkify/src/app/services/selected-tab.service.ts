@@ -1,15 +1,15 @@
 import {Injectable, signal, WritableSignal} from '@angular/core';
-import {LfLinkTabRoutes} from '@utils/lf-link-tab-routes.enum';
+import {LinkTabRoutes} from '@utils/link-tab-routes.enum';
 
 @Injectable({providedIn: 'root'})
 export class SelectedTabService {
-  private _selectedTab: WritableSignal<LfLinkTabRoutes> = signal<LfLinkTabRoutes>(LfLinkTabRoutes.LINKS);
+  private _selectedTab: WritableSignal<LinkTabRoutes> = signal<LinkTabRoutes>(LinkTabRoutes.LINKS);
 
-  public get selectedTab(): WritableSignal<LfLinkTabRoutes> {
+  public get selectedTab(): WritableSignal<LinkTabRoutes> {
     return this._selectedTab;
   }
 
-  public setSelectedTab(tab: LfLinkTabRoutes): void {
+  public setSelectedTab(tab: LinkTabRoutes): void {
     this._selectedTab.set(tab);
   }
 }

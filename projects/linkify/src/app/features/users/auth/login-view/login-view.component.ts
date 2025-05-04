@@ -1,18 +1,18 @@
 import {ChangeDetectionStrategy, Component,} from '@angular/core';
-import {LfInputComponent} from '@ui/lf-input/lf-input.component';
-import {LfButtonComponent} from '@ui/lf-button/lf-button.component';
+import {InputComponent} from '@ui/input/input.component';
+import {ButtonComponent} from '@ui/button/button.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {LfNavigationRoutes} from '@utils/lf-navigation-routes.enum';
+import {NavigationRoutes} from '@utils/navigation-routes.enum';
 
 @Component({
   selector: 'lf-login-view',
-  templateUrl: './lf-login-view.component.html',
-  styleUrls: ['./lf-login-view.component.scss'],
-  imports: [LfInputComponent, LfButtonComponent, ReactiveFormsModule],
+  templateUrl: './login-view.component.html',
+  styleUrls: ['./login-view.component.scss'],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class LfLoginViewComponent {
+export default class LoginViewComponent {
   public form: FormGroup;
 
   constructor(private _fb: FormBuilder,
@@ -51,11 +51,11 @@ export default class LfLoginViewComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      this._router.navigate([LfNavigationRoutes.CUSTOMIZE_LINKS]);
+      this._router.navigate([NavigationRoutes.CUSTOMIZE_LINKS]);
     }
   }
 
   public goToCreateAccount(): void {
-    this._router.navigate([`${LfNavigationRoutes.AUTH}/${LfNavigationRoutes.CREATE_ACCOUNT}`]);
+    this._router.navigate([`${NavigationRoutes.AUTH}/${NavigationRoutes.CREATE_ACCOUNT}`]);
   }
 }
