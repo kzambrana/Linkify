@@ -35,23 +35,8 @@ export class ProfileCardComponent {
   }
 
   ngOnInit() {
-     this._profileHttpService.getProfile(2).subscribe({
-       next: (profile) => {
-         this._profileUpdateService.updateProfile(profile);
-       },
-       error: (error) => {
-         console.error('Error getting profile:', error);
-       },
-     });
-
-     this._linksHttpService.getLinks(2).subscribe({
-       next: (links) => {
-         this._linkUpdateService.setSavedLinks(links);
-       },
-       error: (error) => {
-         console.error('Error getting saved links:', error);
-       },
-     });
+     this._profileHttpService.getProfile(2).subscribe(profile => this._profileUpdateService.updateProfile(profile));
+     this._linksHttpService.getLinks(2).subscribe(links => this._linkUpdateService.setSavedLinks(links));
   }
 
   private _listenToLinkService(): void {
