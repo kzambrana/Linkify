@@ -1,5 +1,5 @@
 export interface LinkCardInterface {
-  id: string;
+  id: number;
   platform: string;
   link: string;
   iconPath?: string;
