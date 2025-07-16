@@ -16,17 +16,17 @@ export class LinksHttpService {
     );
   }
 
-  public createLinks(  profileId: number,links: LinkCardInterface[]): Observable<LinkCardInterface> {
+  public createLinks(profileId: number,links: LinkCardInterface[]): Observable<LinkCardInterface> {
     return this.http.post<LinkCardInterface>(
       `${this.baseUrl}/${profileId}/links`,
       links,
     );
   }
 
-  public updateLink(profileId: number, linkId: number, link: LinkCardInterface): Observable<LinkCardInterface> {
+  public updateLinks(profileId: number, links: LinkCardInterface[]): Observable<LinkCardInterface> {
     return this.http.put<LinkCardInterface>(
-      `${this.baseUrl}/${profileId}/links/${linkId}`,
-      link,
+      `${this.baseUrl}/${profileId}/links`,
+      links,
     );
   }
 
