@@ -19,8 +19,8 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 export class LinkCardComponent {
   public platformOptions = input<DropDownOption[]>([]);
   public cardNumber = input<number>(0);
-  public dataLink = input<LinkCardInterface>({id: '', link: '', platform: ''});
-  public deletedCardEmitter = output<string>();
+  public dataLink = input<LinkCardInterface>({id: 0, link: '', platform: ''});
+  public deletedCardEmitter = output<number>();
   public updatedLinkEmitter = output<LinkCardInterface>();
   public linkControl!: FormControl<string>;
 

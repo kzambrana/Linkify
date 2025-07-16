@@ -1,10 +1,11 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, WritableSignal} from '@angular/core';
 import {LinkCardInterface} from '@interfaces/link-card.interface';
 import {LinkUpdateService} from '@services/link-update.service';
-import {PlatformsList} from '@utils/platforms-list.constant';
 import {TitleCasePipe} from '@angular/common';
 import {ProfileUpdateService} from '@services/profile-update.service';
 import {ProfileDataInterface} from '@interfaces/profile-data.interface';
+import {ProfileHttpService} from 'src/app/core/services/profile-http.service';
+import {LinksHttpService} from 'src/app/core/services/link-http-service';
 
 @Component({
   selector: 'lf-profile-card',
@@ -20,6 +21,8 @@ export class ProfileCardComponent {
   public profileData: WritableSignal<ProfileDataInterface>;
 
   constructor(private _linkUpdateService: LinkUpdateService,
+              private _linksHttpService: LinksHttpService,
+              private _profileHttpService: ProfileHttpService,
               private _profileUpdateService: ProfileUpdateService,
               private _cd: ChangeDetectorRef) {
     this._listenToLinkService();
@@ -31,22 +34,15 @@ export class ProfileCardComponent {
     window.open(url, '_blank');
   }
 
-  private _listenToLinkService(): void {
-    effect(() => {
-      const links = this._linkUpdateService.getSavedLinks()();
-      this._mapSavedLinks(links);
-    });
+  ngOnInit() {
+     this._profileHttpService.getProfile(2).subscribe(profile => this._profileUpdateService.updateProfile(profile));
+     this._linksHttpService.getLinks(2).subscribe(links => this._linkUpdateService.setSavedLinks(links));
   }
 
-  private _mapSavedLinks(links: LinkCardInterface[]): void {
-    this.savedLinks = links.map(link => {
-      const platformData = PlatformsList.find(platform => platform.value === link.platform);
-      return {
-        ...link,
-        iconPath: platformData?.iconPath || '',
-        color: platformData?.color || ''
-      };
+  private _listenToLinkService(): void {
+    effect(() => {
+      this.savedLinks = this._linkUpdateService.getSavedLinks()();
+      this._cd.markForCheck();
     });
-    this._cd.markForCheck();
   }
 }

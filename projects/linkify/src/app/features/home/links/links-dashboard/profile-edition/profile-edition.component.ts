@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  effect,
   ElementRef,
+  OnInit,
   ViewChild,
   WritableSignal
 } from '@angular/core';
@@ -12,6 +14,7 @@ import {InputComponent} from '@ui/input/input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ProfileUpdateService} from '@services/profile-update.service';
 import {ProfileDataInterface} from '@interfaces/profile-data.interface';
+import {ProfileHttpService} from 'src/app/core/services/profile-http.service';
 
 @Component({
   selector: 'lf-profile-edition',
@@ -21,7 +24,7 @@ import {ProfileDataInterface} from '@interfaces/profile-data.interface';
   styleUrls: ['./profile-edition.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProfileEditionComponent {
+export class ProfileEditionComponent implements OnInit {
   @ViewChild('fileInput') fileInputRef!: ElementRef<HTMLInputElement>;
 
   public firstName: string = '';
@@ -38,6 +41,7 @@ export class ProfileEditionComponent {
 
   constructor(private _fb: FormBuilder,
               private _cdr: ChangeDetectorRef,
+              private _profileHttpService: ProfileHttpService,
               private _profileUpdateService: ProfileUpdateService) {
     this.form = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -45,6 +49,11 @@ export class ProfileEditionComponent {
       lastName: ['', Validators.required],
     });
     this.profileData = this._profileUpdateService.profile;
+     effect(() => this.profileData());     
+  }
+
+  ngOnInit(): void {
+    this._profileHttpService.getProfile(2).subscribe((profile) => this._profileUpdateService.updateProfile(profile));
   }
 
   public onImageSelected(event: Event): void {
@@ -111,12 +120,14 @@ export class ProfileEditionComponent {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
-      this._profileUpdateService.updateProfile({
+      const newProfile = {
         firstName: this.form.get('firstName')?.value,
         lastName: this.form.get('lastName')?.value,
         email: this.form.get('email')?.value,
         image: this.imagePreview ? this.imagePreview : '',
-      });
+      };
+      this._profileUpdateService.updateProfile(newProfile);
+      this._profileHttpService.updateProfile(2, newProfile).subscribe();
     }
   }
 
