@@ -4,7 +4,7 @@ import {PlatformsList} from '@utils/platforms-list.constant';
 import {DropDownOption} from '@interfaces/drop-down-option.interface';
 import {LinkCardInterface} from '@interfaces/link-card.interface';
 import {LinkUpdateService} from '@services/link-update.service';
-import {timer} from 'rxjs';
+import {timer, forkJoin, Observable} from 'rxjs';
 import {LinkCardComponent} from '../../components/link-card/link-card.component';
 import {LinksHttpService} from 'src/app/core/services/link-http-service';
 
@@ -23,6 +23,9 @@ export default class LinksEditionComponent implements OnInit {
 
   readonly LF_PLATFORMS_LIST: DropDownOption[] = PlatformsList;
 
+  private _initialBackendLinks: LinkCardInterface[] = [];
+
+
   constructor(private _linkUpdateService: LinkUpdateService,
               private _linksHttpService: LinksHttpService) {
     this.linksList = this._linkUpdateService.getSavedLinks();
@@ -30,14 +33,17 @@ export default class LinksEditionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this._linksHttpService.getLinks(2).subscribe(links => this._linkUpdateService.setSavedLinks(links));
+    this._linksHttpService.getLinks(2).subscribe(links => {
+      this._linkUpdateService.setSavedLinks(links);
+      this._initialBackendLinks = [...links];
+    });
   }
 
   public addLinkCard(): void {
     const updatedList = [
       ...this.linksList(),
       {
-        id: this._generateId(),
+        id: this._generateTempId(),
         platform: '',
         link: '',
       },
@@ -51,7 +57,9 @@ export default class LinksEditionComponent implements OnInit {
     const updatedList = this.linksList().filter((link) => link.id !== deletedCardId);
     this._linkUpdateService.setSavedLinks(updatedList);
 
-    this._linksHttpService.deleteLink(2, deletedCardId).subscribe();
+    if (deletedCardId > 0) {
+      this._linksHttpService.deleteLink(2, deletedCardId).subscribe();
+    }
     this._emitIsEmptyList();
   }
 
@@ -64,8 +72,45 @@ export default class LinksEditionComponent implements OnInit {
     let validLinks = this.linksList().filter((linkCard) => linkCard.platform !== '' && linkCard.link !== '');
     validLinks = this._mapSavedLinks(validLinks);
 
-    this._linksHttpService.createLinks(2, validLinks).subscribe();
-    this._linkUpdateService.setSavedLinks(validLinks);
+    const linksToCreate: LinkCardInterface[] = [];
+    const linksToUpdate: LinkCardInterface[] = [];
+
+    validLinks.forEach(link => {
+      const isExistingBackendLink = this._initialBackendLinks.some(
+        backendLink => backendLink.id === link.id && link.id > 0
+      );
+
+      if (isExistingBackendLink) {
+        linksToUpdate.push(link);
+      } else {
+        linksToCreate.push(link);
+      }
+    });
+
+    const httpRequests: Observable<any>[] = [];
+
+    if (linksToCreate.length > 0) {
+      httpRequests.push(this._linksHttpService.createLinks(2, linksToCreate));
+    }
+
+    if (linksToUpdate.length > 0) {
+      httpRequests.push(this._linksHttpService.updateLinks(2, linksToUpdate));
+    }
+
+    if (httpRequests.length > 0) {
+      forkJoin(httpRequests).subscribe({
+        next: () => {
+          this._linksHttpService.getLinks(2).subscribe(links => {
+            this._linkUpdateService.setSavedLinks(links);
+            this._initialBackendLinks = [...links];
+            this._emitIsEmptyList();
+          });
+        },
+        error: (err) => {
+          console.error('Error saving links:', err);
+        }
+      });
+    }
   }
 
   private _mapSavedLinks(links: LinkCardInterface[]): LinkCardInterface[] {
@@ -81,12 +126,12 @@ export default class LinksEditionComponent implements OnInit {
     });
   }
 
-  private _generateId(): number {
-    return Math.random();
+  private _generateTempId(): number {
+    return -(Math.random() * 1000000);
   }
 
   private _emitIsEmptyList(): void {
-    this.linksList.length === 0? this.emptyListEmitter.emit(true) : this.emptyListEmitter.emit(false);
+    this.linksList().length === 0? this.emptyListEmitter.emit(true) : this.emptyListEmitter.emit(false);
   }
 
   private _scrollToBottom(): void {
