@@ -1,0 +1,38 @@
+@use './../variables/colors' as colors;
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: colors.$secondary-gray;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: colors.$primary-purple;
+  }
+
+  &__icon {
+    font-size: 15px;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+
+  &--active {
+    background-color: colors.$background-light-purple;
+    color: colors.$primary-purple;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

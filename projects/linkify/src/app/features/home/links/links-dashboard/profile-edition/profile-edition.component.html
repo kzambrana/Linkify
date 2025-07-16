@@ -1,0 +1,73 @@
+<div class="profile-edition__header">
+  <span class="heading-m">Profile Details</span>
+
+  <span class="body-m profile-edition__description">
+    Add your details to create a personal touch to your profile.
+  </span>
+</div>
+
+<section class="profile-edition__container body-m">
+  <div class="profile-edition__upload">
+    <label class="profile-edition__upload-label">Profile picture</label>
+
+    <div class="profile-edition__upload-box">
+      <div class="profile-edition__upload-image" (click)="triggerFileInput()">
+        @if (!imagePreview) {
+          <div class="profile-edition__upload-trigger">
+            <span class="icon-image-preview"></span>
+            <span>+ Upload Image</span>
+            <input type="file"
+                   accept="image/png, image/jpeg"
+                   (change)="onImageSelected($event)"
+                   #fileInput
+                   hidden />
+          </div>
+        } @else {
+          <img [src]="profileData().image"
+               alt="Preview"
+               class="profile-edition__upload-preview"/>
+        }
+      </div>
+
+      <p class="profile-edition__upload-hint">
+        Image must be below 1024x1024px.<br>
+        Use PNG or JPG format.
+      </p>
+    </div>
+  </div>
+
+  <form class="profile-edition__form" [formGroup]="form">
+    <div class="profile-edition__form-group">
+      <span>First name*</span>
+      <lf-input type="text"
+                placeholder="e.g. John"
+                [value]="profileData().firstName"
+                [errorMessage]="getErrorMessage('firstName')"
+                (inputValueChange)="onInputValueChange('firstName', $event)" />
+    </div>
+
+    <div class="profile-edition__form-group">
+      <span>Last name*</span>
+      <lf-input type="text"
+                placeholder="e.g. Appleseed"
+                [value]="profileData().lastName"
+                [errorMessage]="getErrorMessage('lastName')"
+                (inputValueChange)="onInputValueChange('lastName', $event)" />
+    </div>
+
+    <div class="profile-edition__form-group">
+      <span>Email</span>
+      <lf-input type="email"
+                placeholder="e.g. email@example.com"
+                [value]="profileData().email"
+                [errorMessage]="getErrorMessage('email')"
+                (inputValueChange)="onInputValueChange('email', $event)" />
+    </div>
+  </form>
+</section>
+
+<section class="profile-edition__footer">
+  <lf-button [primary]="true"
+             buttonText="Save"
+             (clickEmitter)="saveProfile()" />
+</section>

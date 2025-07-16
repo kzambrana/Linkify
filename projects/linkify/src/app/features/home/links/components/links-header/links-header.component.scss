@@ -1,0 +1,41 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
+.link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: colors.$primary-white;
+  padding: 0.5rem 1rem;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+  &__left,
+  &__center,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__left {
+    gap: 0.5rem;
+
+    .link-header__logo {
+      height: 30px;
+      width: auto;
+    }
+
+    .link-header__app-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+
+  &__center {
+    gap: 1rem;
+  }
+
+  &__right {
+    font-size: 10px;
+  }
+}

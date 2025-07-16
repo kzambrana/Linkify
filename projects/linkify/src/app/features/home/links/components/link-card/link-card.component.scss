@@ -1,0 +1,67 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$background-light-gray;
+  padding: 15px;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.link-form {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: colors.$secondary-gray;
+  }
+
+  &__header-left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .lf-icon-menu {
+      font-size: 8px;
+      cursor: pointer;
+    }
+  }
+
+  &__link-number {
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  &__header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__remove-button {
+    color: colors.$secondary-gray;
+    cursor: pointer;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__platform,
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+
+    lf-input,
+    lf-drop-down {
+      background-color: colors.$primary-white;
+      border-radius: 8px;
+      width: 100%;
+    }
+  }
+}

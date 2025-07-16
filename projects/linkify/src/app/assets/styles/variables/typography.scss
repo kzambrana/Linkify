@@ -1,0 +1,42 @@
+/* Typography variables */
+$instrument-sans-font-family: 'Instrument Sans', sans-serif;
+
+/* Font sizes */
+$heading-s-size: 16px;
+$heading-m-size: 32px;
+$body-s-size: 12px;
+$body-m-size: 16px;
+
+/* Font weights */
+$font-weight-regular: 400;
+$font-weight-bold: 600;
+
+/* Heading typography styles */
+.heading-s {
+  font-family: $instrument-sans-font-family;
+  font-size: $heading-s-size;
+  font-weight: $font-weight-bold;
+  line-height: 1.5;
+}
+
+.heading-m {
+  font-family: $instrument-sans-font-family;
+  font-size: $heading-m-size;
+  font-weight: $font-weight-bold;
+  line-height: 1.5;
+}
+
+/* Body typography styles*/
+.body-s {
+  font-family: $instrument-sans-font-family;
+  font-size: $body-s-size;
+  font-weight: $font-weight-regular;
+  line-height: 1.5;
+}
+
+.body-m {
+  font-family: $instrument-sans-font-family;
+  font-size: $body-m-size;
+  font-weight: $font-weight-regular;
+  line-height: 1.5;
+}

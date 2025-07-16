@@ -1,0 +1,62 @@
+@use './../variables/colors' as colors;
+@use './../variables/typography' as fonts;
+
+.drop-down {
+  position: relative;
+  border: 1px solid colors.$borders-gray;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: fonts.$instrument-sans-font-family, serif;
+  cursor: pointer;
+  background: transparent;
+  height: 30px;
+
+  &--active {
+    box-shadow: 0 0 12px 0 colors.$purple-shadow;
+    border: 1px solid colors.$primary-purple;
+  }
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+  }
+
+  &__placeholder {
+    color: colors.$borders-gray;
+  }
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    border: 1px solid colors.$borders-gray;
+    background: white;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    max-height: 150px;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: colors.$background-light-gray;
+      color: colors.$primary-purple;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

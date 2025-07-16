@@ -1,0 +1,7 @@
+<button class="button heading-s"
+        [class.button--primary]="primary()"
+        [class.button--secondary]="!primary()"
+        [class.button--disabled]="disabled()"
+        (click)="onClick()">
+  <span class="button__text">{{ buttonText() }}</span>
+</button>

@@ -1,0 +1,69 @@
+@use 'app/assets/styles/variables/colors' as colors;
+
+.login {
+  width: 100%;
+  height: 100%;
+  background-color: colors.$background-light-gray;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+
+  .login__header {
+    display: flex;
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login__form {
+    display: flex;
+    gap: 1.6rem;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    background-color: colors.$primary-white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    margin: 0 2rem;
+
+    &__header{
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      .login__description {
+        color: colors.$secondary-gray;
+      }
+    }
+
+    &__input-wrapper {
+      width: 100%;
+
+      label {
+        color: colors.$secondary-gray;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+
+      .login__question {
+        color: colors.$secondary-gray;
+      }
+
+      .login__button {
+        color: colors.$primary-purple;
+        cursor: pointer;
+      }
+    }
+  }
+}

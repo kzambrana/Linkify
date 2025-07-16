@@ -1,0 +1,48 @@
+@use './../variables/colors' as colors;
+
+.button {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  &--primary {
+    background-color: colors.$primary-purple;
+    color: colors.$primary-white;
+
+    &.button--active {
+      background-color: colors.$secondary-purple;
+      box-shadow: 0 0 6px 0 colors.$purple-shadow;
+    }
+  }
+
+  &--secondary {
+    color: colors.$primary-purple;
+    background-color: colors.$primary-white;
+    border: 1px solid colors.$primary-purple;
+
+    &.button--active,
+    &:hover {
+      background-color: colors.$background-light-purple;
+    }
+  }
+
+  &--disabled {
+    opacity: 25%;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &__text {
+    cursor: pointer;
+  }
+}

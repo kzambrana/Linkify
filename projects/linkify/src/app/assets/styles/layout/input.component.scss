@@ -1,0 +1,78 @@
+@use './../variables/colors' as colors;
+@use './../variables/typography' as fonts;
+
+.input {
+  height: 1.8rem;
+  gap: 5px;
+  font-family: fonts.$instrument-sans-font-family, serif;
+  border-radius: 8px;
+  border: 1px solid colors.$borders-gray;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    color: colors.$secondary-gray;
+
+    img {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__field {
+    border: none;
+    font-size: 14px;
+    color: colors.$primary-gray;
+    width: 100%;
+    background-color: transparent;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: colors.$borders-gray;
+    }
+  }
+
+  &__error-message {
+    font-size: 12px;
+    width: max-content;
+  }
+
+  &--active {
+    box-shadow: 0 0 12px 0 colors.$purple-shadow;
+    border: 1px solid colors.$primary-purple;
+  }
+
+  &--error {
+    border: 1px solid colors.$primary-red;
+
+    .input__field {
+      color: colors.$primary-red;
+    }
+
+    .input__error-message {
+      color: colors.$primary-red;
+    }
+  }
+}

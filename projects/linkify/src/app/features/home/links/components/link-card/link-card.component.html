@@ -1,0 +1,33 @@
+<section class="link-form__header">
+    <div class="link-form__header-left">
+        <span class="lf-icon-menu"></span>
+
+        <span class="link-form__link-number body-m">Link #{{ cardNumber() }}</span>
+    </div>
+
+    <div class="link-form__header-right">
+        <button class="link-form__remove-button body-m" (click)="removeLinkCard()">Remove</button>
+    </div>
+</section>
+
+<section class="link-form__inputs">
+    <div class="link-form__platform">
+        <span class="body-s">Platform</span>
+
+        <lf-drop-down placeholder="Select a platform"
+                      [options]="platformOptions()"
+                      [preSelectedOption]="getSelectedPlatformOption()"
+                      (selectedOptionEmitter)="onPlatformSelect($event)"/>
+    </div>
+
+    <div class="link-form__link">
+        <span class="body-s">Link</span>
+
+        <lf-input
+                placeholder="e.g. https://www.github.com/johnappleseed"
+                iconPath="lf-icon-link"
+                [errorMessage]="urlErrorMessage"
+                [value]="dataLink().link"
+                (inputValueChange)="onLinkChange($event)"/>
+    </div>
+</section>

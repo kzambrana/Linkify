@@ -1,0 +1,50 @@
+<section class="login">
+  <div class="login__header">
+    <img class="login__header-logo" src="images/linkify-logo.svg" alt="Linkify logo"/>
+
+    <span class="login__header-title heading-m">Linkify</span>
+  </div>
+
+  <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="login__form__header">
+      <span class="heading-m">Login</span>
+
+      <span class="body-m login__description">Add your details below to get back into the app</span>
+    </div>
+
+    <div class="login__form__input-wrapper">
+      <label class="body-s">Email</label>
+
+      <lf-input type="email"
+                placeholder="e.g. alex@email.com"
+                iconPath="lf-icon-envelope"
+                [errorMessage]="getErrorMessage('email')"
+                (inputValueChange)="onInputValueChange('email', $event)"/>
+    </div>
+
+    <div class="login__form__input-wrapper">
+      <label class="body-s">Password</label>
+
+      <lf-input type="password"
+                placeholder="Enter your password"
+                iconPath="lf-icon-lock"
+                [errorMessage]="getErrorMessage('password')"
+                (inputValueChange)="onInputValueChange('password', $event)"/>
+    </div>
+
+    <lf-button type="submit"
+               buttonText="Login"
+               [primary]="true"/>
+
+    <div class="body-m login__form__footer">
+      <span class="login__question">
+        Don't have an account?
+      </span>
+
+      <button class="login__button"
+              (click)="goToCreateAccount()">
+        <span>Create account</span>
+      </button>
+    </div>
+  </form>
+</section>
